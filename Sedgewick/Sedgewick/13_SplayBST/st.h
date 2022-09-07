@@ -1,0 +1,134 @@
+#ifndef ST_H
+#define ST_H
+#include "item.h"
+//Скошенное дерево бинарного поиска - амортизационный алгоритм
+//ключи - неотрицательные целые числа: 0 =< key <= M-1
+//M - зарезервированное (максимальное) значение ключа
+//N - количество элементов в таблице, N <= M
+//search: = ; insert: = ;
+//join: ~ N в худшем случае; balance() ~ N
+//Количество сравнений, требуемых для любой последовательности M операций вставки или поиска
+//в N-узловом скошенном дереве, равно O ~ (N+M)lg(N+M) - предельное значение общих затрат
+//на все операции для худшего случая
+template<class Key, class Item>
+class ST
+{
+private:
+    struct node
+    {
+        Item item; node *l, *r; int N;
+        node(Item x, node* left, node* right, int num)
+        { item = x; l = left; r = right; N = num; }
+        void upd()
+        {
+            if(l != nullptr && r != nullptr) N = 1 + l->N + r->N;
+            else if(l != nullptr && r == nullptr) N = 1 + l->N;
+            else if(l == nullptr && r != nullptr) N = 1 + r->N;
+            else if(l == nullptr && r == nullptr) N = 1;
+        }
+    };
+    typedef node* link;
+    link head; Item nullitem;
+    Item searchR(link h, Key v)
+    {
+        if(h == nullptr) return nullitem;
+        Key t = h->item.key();
+        if(v == t) return h->item;
+        if(v < t) return searchR(h->l, v);
+        else return searchR(h->r, v);
+    }
+    Item selectR(link h, int k)
+    {
+        if(h == nullptr) return nullitem;
+        int t = (h->l == nullptr) ? 0 : h->l->N;
+        if(t > k) return selectR(h->l, k);
+        if(t < k) return selectR(h->r, k-t-1);
+        return h->item;
+    }
+    link joinR(link a, link b)
+    {
+        if(b == nullptr) return a;
+        if(a == nullptr) return b;
+        insertT(b, a->item);
+        b->l = joinR(a->l, b->l);
+        b->r = joinR(a->r, b->r);
+        delete a; b->upd(); return b;
+    }
+    link joinLR(link a, link b)
+    { if(b == nullptr) return a; partR(b, 0); b->l = a; b->upd(); return b; }
+
+    void splay(link& h, Item x)
+    {
+        //аргумент ссылки изменяется в последнем рекурсивном вызове
+        if(h == nullptr){ h = new node(x, nullptr, nullptr, 1); return; }
+        if(x.key() < h->item.key())
+        {
+            link& hl = h->l; int N = h->N;
+            if(hl == nullptr){ h = new node(x, nullptr, h, N+1); return; }
+            if(x.key() < hl->item.key()){ splay(hl->l, x); rotR(h); }
+            else { splay(hl->r, x); rotL(hl); }
+            rotR(h);
+        }
+        else
+        {
+            link& hr = h->r; int N = h->N;
+            if(hr == nullptr){ h = new node(x, h, nullptr, N+1); return; }
+            if(x.key() > hr->item.key()){ splay(hr->r, x); rotL(h); }
+            else { splay(hr->l, x); rotR(hr); }
+            rotL(h);
+        }
+    }
+    void insertT(link& h, Item x)
+    {
+        if(h == nullptr){ h = new node(x, nullptr, nullptr, 1); return; }
+        if(x.key() < h->item.key()){ insertT(h->l, x); rotR(h); }
+        else{ insertT(h->r, x); rotL(h); }
+        h->N++;
+    }
+    void showR(link h, ostream& os)
+    {
+        //поперечный обход дерева дает отсортированный массив
+        if(h == nullptr) return;
+        showR(h->l, os);//отображаем элементы в левом поддереве
+        h->item.show(os);//отображаем элемент в корне
+        showR(h->r, os);//отображаем элементы в правом поддереве
+    }  
+    void partR(link& h, int k)
+    {
+        int t = (h->l == nullptr) ? 0 : h->l->N;
+        if(t > k){ partR(h->l, k); rotR(h); }
+        if(t < k){ partR(h->r, k-t-1); rotL(h); }
+    }
+    void removeR(link& h, Key v)
+    {
+        if(h == nullptr) return;
+        Key w = h->item.key();
+        if(v < w) { removeR(h->l, v); h->l->upd(); }
+        if(w < v) { removeR(h->r, v); h->r->upd(); }
+        if(v == w){ link t = h; h = joinLR(h->l, h->r); delete t; }
+    }
+    void balanceR(link& h)
+    {
+        if((h == nullptr) || (h->N == 1)) return;
+        partR(h, h->N/2);
+        balanceR(h->l);
+        balanceR(h->r);
+    }
+    void rotR(link& h){ link x = h->l; h->l = x->r; x->r = h; x->r->upd(); h = x; h->upd(); }
+    void rotL(link& h){ link x = h->r; h->r = x->l; x->l = h; x->l->upd(); h = x; h->upd(); }
+public:
+    ST(){ head = nullptr; }
+    Item search(Key v){ return searchR(head, v); }
+    Item select(int k){ return selectR(head, k); }
+    int count() const{ return head->N; }
+
+    void insertStd(Item x){ splay(head, x); head->upd(); }
+    void insert(Item x){ splay(head, x); head->upd(); }
+    void remove(Item x){ removeR(head, x.key()); head->upd(); }
+    void join(ST<Key, Item>& b){ head = joinR(head, b.head); }
+    void balance(){ balanceR(head); }
+    //вывод в отсортированном виде
+    void show(ostream& os = cout){ showR(head, os); }
+};
+
+#endif // ST_H
