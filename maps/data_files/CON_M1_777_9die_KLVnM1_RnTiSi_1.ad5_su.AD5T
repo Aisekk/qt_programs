@@ -1,0 +1,108 @@
+=3x2
+SYS_VERSION	5
+SYS_DATE	07/12/2017
+SYS_TIME	11:19:12
+=1x2
+SYS_WAFERID	1
+=23x8
+VarName	Standart_PM_Die_Cont_p1p2_Resistor2Terminals_Res	Standart_PM_Die_Cont_p1p3_Resistor2Terminals_Res	Standart_PM_Die_Cont_p2p4_Resistor2Terminals_Res	Standart_PM_Die_Cont_p3p4_Resistor2Terminals_Res	Standart_PM_Die_tRZnTiSi_tRZnTiSi05_Resistor2Terminals_Res	Standart_PM_Die_tRZnTiSi_tRZnTiSi09_Resistor2Terminals_Res	Standart_PM_Die_KLV_nM1_KLV_nM1_KelvinMeasurement_Res
+DieName	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die
+ModName	Cont	Cont	Cont	Cont	tRZnTiSi	tRZnTiSi	KLV_nM1
+DevName	p1p2	p1p3	p2p4	p3p4	tRZnTiSi05	tRZnTiSi09	KLV_nM1
+AlgName	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	KelvinMeasurement
+AlgOrgName	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	KelvinMeasurement
+ParName	Res	Res	Res	Res	Res	Res	Res
++d:2							
+Sqr	1	1	1	1	100	100	1
+Output							1
+DevSpecName							
++m:0							
+Average	+3.530173E+00	+2.892139E+00	+1.698798E+00	+1.011666E+00	+3.200000E+30	+3.200000E+30	+4.124490E+00
+StdDevi	+1.531497E+00	+9.775130E-01	+7.090658E-01	+1.724534E-01	+0.000000E+00	+0.000000E+00	+1.423789E+00
+3,3	+7.525021E+00	+5.431831E+00	+3.463803E+00	+1.378740E+00	+3.200000E+30	+3.200000E+30	+4.782210E+00
+0,3	+3.665689E+00	+2.889338E+00	+1.843998E+00	+1.010918E+00	+3.200000E+30	+3.200000E+30	+4.742697E+00
+-3,3	+3.292723E+00	+2.613013E+00	+1.961554E+00	+1.222942E+00	+3.200000E+30	+3.200000E+30	+4.656413E+00
+-3,0	+2.759382E+00	+2.383790E+00	+1.387155E+00	+9.514748E-01	+3.200000E+30	+3.200000E+30	+4.462059E+00
+0,0	+2.810568E+00	+2.392917E+00	+1.371554E+00	+8.922995E-01	+3.200000E+30	+3.200000E+30	+1.615125E+00
+3,0	+2.983294E+00	+2.495010E+00	+1.443835E+00	+9.019572E-01	+3.200000E+30	+3.200000E+30	+5.100037E+00
+3,-3	+2.831257E+00	+2.506266E+00	+1.287498E+00	+8.965394E-01	+3.200000E+30	+3.200000E+30	+5.325967E+00
+0,-3	+3.236246E+00	+2.969121E+00	+1.234111E+00	+9.113278E-01	+3.200000E+30	+3.200000E+30	+1.689887E+00
+-3,-3	+2.667378E+00	+2.347969E+00	+1.295672E+00	+9.387908E-01	+3.200000E+30	+3.200000E+30	+4.746014E+00
+=1x2
+SYS_WAFERID	2
+=23x8
+VarName	Standart_PM_Die_Cont_p1p2_Resistor2Terminals_Res	Standart_PM_Die_Cont_p1p3_Resistor2Terminals_Res	Standart_PM_Die_Cont_p2p4_Resistor2Terminals_Res	Standart_PM_Die_Cont_p3p4_Resistor2Terminals_Res	Standart_PM_Die_tRZnTiSi_tRZnTiSi05_Resistor2Terminals_Res	Standart_PM_Die_tRZnTiSi_tRZnTiSi09_Resistor2Terminals_Res	Standart_PM_Die_KLV_nM1_KLV_nM1_KelvinMeasurement_Res
+DieName	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die
+ModName	Cont	Cont	Cont	Cont	tRZnTiSi	tRZnTiSi	KLV_nM1
+DevName	p1p2	p1p3	p2p4	p3p4	tRZnTiSi05	tRZnTiSi09	KLV_nM1
+AlgName	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	KelvinMeasurement
+AlgOrgName	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	KelvinMeasurement
+ParName	Res	Res	Res	Res	Res	Res	Res
++d:2							
+Sqr	1	1	1	1	100	100	1
+Output							1
+DevSpecName							
++m:0							
+Average	+4.925264E+00	+4.187251E+00	+1.730765E+00	+9.274482E-01	+3.200000E+30	+3.200000E+30	+3.965331E+00
+StdDevi	+1.028060E+01	+8.438602E+00	+1.778175E+00	+4.781521E-02	+0.000000E+00	+0.000000E+00	+1.598029E+00
+3,3	+3.229974E+01	+2.662407E+01	+6.464960E+00	+1.031566E+00	+3.200000E+30	+3.200000E+30	+5.224576E+00
+0,3	+2.942042E+00	+3.086420E+00	+1.112595E+00	+9.467007E-01	+3.200000E+30	+3.200000E+30	+5.156419E+00
+-3,3	+1.265983E+00	+1.124606E+00	+1.151410E+00	+9.484067E-01	+3.200000E+30	+3.200000E+30	+5.470484E+00
+-3,0	+1.154068E+00	+1.168224E+00	+9.946290E-01	+9.196248E-01	+3.200000E+30	+3.200000E+30	+1.862174E+00
+0,0	+1.509890E+00	+1.195886E+00	+1.321178E+00	+9.388790E-01	+3.200000E+30	+3.200000E+30	+4.806084E+00
+3,0	+1.275185E+00	+1.046463E+00	+1.223840E+00	+9.168424E-01	+3.200000E+30	+3.200000E+30	+4.678258E+00
+3,-3	+1.121705E+00	+1.070435E+00	+1.017605E+00	+8.863677E-01	+3.200000E+30	+3.200000E+30	+1.995110E+00
+0,-3	+1.469940E+00	+1.226693E+00	+1.191043E+00	+8.765010E-01	+3.200000E+30	+3.200000E+30	+4.765460E+00
+-3,-3	+1.288826E+00	+1.142465E+00	+1.099626E+00	+8.821454E-01	+3.200000E+30	+3.200000E+30	+1.729416E+00
+=1x2
+SYS_WAFERID	3
+=23x8
+VarName	Standart_PM_Die_Cont_p1p2_Resistor2Terminals_Res	Standart_PM_Die_Cont_p1p3_Resistor2Terminals_Res	Standart_PM_Die_Cont_p2p4_Resistor2Terminals_Res	Standart_PM_Die_Cont_p3p4_Resistor2Terminals_Res	Standart_PM_Die_tRZnTiSi_tRZnTiSi05_Resistor2Terminals_Res	Standart_PM_Die_tRZnTiSi_tRZnTiSi09_Resistor2Terminals_Res	Standart_PM_Die_KLV_nM1_KLV_nM1_KelvinMeasurement_Res
+DieName	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die
+ModName	Cont	Cont	Cont	Cont	tRZnTiSi	tRZnTiSi	KLV_nM1
+DevName	p1p2	p1p3	p2p4	p3p4	tRZnTiSi05	tRZnTiSi09	KLV_nM1
+AlgName	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	KelvinMeasurement
+AlgOrgName	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	KelvinMeasurement
+ParName	Res	Res	Res	Res	Res	Res	Res
++d:2							
+Sqr	1	1	1	1	100	100	1
+Output							1
+DevSpecName							
++m:0							
+Average	+2.536464E+00	+1.307490E+00	+2.145617E+00	+9.204915E-01	+3.200000E+30	+3.200000E+30	+4.289076E+00
+StdDevi	+1.841241E+00	+5.337314E-02	+1.701945E+00	+4.998838E-02	+0.000000E+00	+0.000000E+00	+1.504105E+00
+3,3	+7.275373E+00	+1.313370E+00	+6.524434E+00	+1.047449E+00	+3.200000E+30	+3.200000E+30	+1.894297E+00
+0,3	+1.763357E+00	+1.334045E+00	+1.361100E+00	+8.972633E-01	+3.200000E+30	+3.200000E+30	+5.394286E+00
+-3,3	+2.830456E+00	+1.427959E+00	+2.270148E+00	+9.225092E-01	+3.200000E+30	+3.200000E+30	+4.790149E+00
+-3,0	+2.487562E+00	+1.241927E+00	+2.218771E+00	+9.121591E-01	+3.200000E+30	+3.200000E+30	+5.199562E+00
+0,0	+2.234637E+00	+1.284687E+00	+1.950078E+00	+9.209799E-01	+3.200000E+30	+3.200000E+30	+5.381505E+00
+3,0	+1.728608E+00	+1.304461E+00	+1.434309E+00	+9.181893E-01	+3.200000E+30	+3.200000E+30	+5.288911E+00
+3,-3	+1.438228E+00	+1.317003E+00	+1.082720E+00	+8.777319E-01	+3.200000E+30	+3.200000E+30	+3.647024E+00
+0,-3	+1.430615E+00	+1.278936E+00	+1.115449E+00	+8.902341E-01	+3.200000E+30	+3.200000E+30	+1.739324E+00
+-3,-3	+1.639344E+00	+1.265022E+00	+1.353546E+00	+8.979079E-01	+3.200000E+30	+3.200000E+30	+5.266622E+00
+=1x2
+SYS_WAFERID	4
+=23x8
+VarName	Standart_PM_Die_Cont_p1p2_Resistor2Terminals_Res	Standart_PM_Die_Cont_p1p3_Resistor2Terminals_Res	Standart_PM_Die_Cont_p2p4_Resistor2Terminals_Res	Standart_PM_Die_Cont_p3p4_Resistor2Terminals_Res	Standart_PM_Die_tRZnTiSi_tRZnTiSi05_Resistor2Terminals_Res	Standart_PM_Die_tRZnTiSi_tRZnTiSi09_Resistor2Terminals_Res	Standart_PM_Die_KLV_nM1_KLV_nM1_KelvinMeasurement_Res
+DieName	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die	Standart_PM_Die
+ModName	Cont	Cont	Cont	Cont	tRZnTiSi	tRZnTiSi	KLV_nM1
+DevName	p1p2	p1p3	p2p4	p3p4	tRZnTiSi05	tRZnTiSi09	KLV_nM1
+AlgName	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	KelvinMeasurement
+AlgOrgName	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	Resistor2Terminals	KelvinMeasurement
+ParName	Res	Res	Res	Res	Res	Res	Res
++d:2							
+Sqr	1	1	1	1	100	100	1
+Output							1
+DevSpecName							
++m:0							
+Average	+1.970365E+00	+1.281535E+00	+1.796500E+00	+1.081773E+00	+3.200000E+30	+3.200000E+30	+3.712294E+00
+StdDevi	+2.840668E-01	+8.111278E-02	+3.207694E-01	+1.373794E-01	+0.000000E+00	+0.000000E+00	+1.083283E+00
+3,3	+2.655337E+00	+1.393728E+00	+2.450980E+00	+1.301067E+00	+3.200000E+30	+3.200000E+30	+3.990902E+00
+0,3	+1.789549E+00	+1.280410E+00	+1.519064E+00	+9.576709E-01	+3.200000E+30	+3.200000E+30	+4.341370E+00
+-3,3	+1.942879E+00	+1.221598E+00	+1.722950E+00	+9.960159E-01	+3.200000E+30	+3.200000E+30	+4.007326E+00
+-3,0	+1.888574E+00	+1.385425E+00	+1.505117E+00	+9.600614E-01	+3.200000E+30	+3.200000E+30	+4.488376E+00
+0,0	+1.625488E+00	+1.264862E+00	+1.491869E+00	+1.022077E+00	+3.200000E+30	+3.200000E+30	+1.735739E+00
+3,0	+2.065262E+00	+1.190902E+00	+2.030457E+00	+1.110618E+00	+3.200000E+30	+3.200000E+30	+4.255101E+00
+3,-3	+1.950458E+00	+1.360915E+00	+1.631854E+00	+1.028383E+00	+3.200000E+30	+3.200000E+30	+1.944948E+00
+0,-3	+1.901864E+00	+1.180638E+00	+1.789869E+00	+1.040799E+00	+3.200000E+30	+3.200000E+30	+4.600371E+00
+-3,-3	+1.913876E+00	+1.255335E+00	+2.026342E+00	+1.319261E+00	+3.200000E+30	+3.200000E+30	+4.046514E+00

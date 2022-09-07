@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="fileopen.png">imgs/fileopen.png</file>
+        <file alias="filesave.png">imgs/filesave.png</file>
+        <file alias="db_save.png">imgs/db_save.png</file>
+        <file alias="db_import.png">imgs/db_import.png</file>
+        <file alias="db_config.png">imgs/db_config.png</file>
+        <file alias="db_update.png">imgs/db_update.png</file>
+        <file alias="arrow-left.png">imgs/arrow-left.png</file>
+        <file alias="arrow-right.png">imgs/arrow-right.png</file>
+        <file alias="list.png">imgs/list.png</file>
+        <file alias="plusChips.png">imgs/plusChips.png</file>
+        <file alias="minusChips.png">imgs/minusChips.png</file>
+        <file alias="home.png">imgs/home.png</file>
+        <file alias="plus.png">imgs/plus.png</file>
+        <file alias="minus.png">imgs/minus.png</file>
+        <file alias="save_changes.png">imgs/save_changes.png</file>
+        <file alias="copy.png">imgs/copy.png</file>
+        <file alias="init_default.png">imgs/init_default.png</file>
+    </qresource>
+</RCC>
