@@ -10,3 +10,7 @@
 /maps/program
 /maps/maps_program
 /maps/maps_qt_files
+*pro.user
+*user
+/exp/build-exp-Desktop_Qt_5_15_1_MinGW_64_bit-Debug
+/CCiA/build_qmake_CCiA/CCiA/*.user

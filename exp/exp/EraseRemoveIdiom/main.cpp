@@ -15,16 +15,16 @@ void RemoveEraseVec()
     std::vector<int> vec{2, 4, 3, 6, 4};
     outputVec(vec);
 
-    //auto it = std::remove(vec.begin(), vec.end(), 4);
-    auto it = std::remove_if(vec.begin(), vec.end(), [](const std::vector<int>::value_type& val) { if(val == 4) return true; return false; });
-    cout << "remove: ";
+    auto it = std::remove(vec.begin(), vec.end(), 4);
+    //auto it = std::remove_if(vec.begin(), vec.end(), [](const std::vector<int>::value_type& val) { if(val == 4) return true; return false; });
+    cout << "after remove: ";
     outputVec(vec);
 
-    //cout << "erase first removed: ";
+    //cout << "after erase first removed: ";
     //vec.erase(it);
     //outputVec(vec);
 
-    cout << "erase all removed: ";
+    cout << "after erase all removed: ";
     vec.erase(it, vec.end());
     outputVec(vec);
 }
