@@ -15,4 +15,5 @@ SUBDIRS += \
     listing_3.3/listing_3_3/listing_3.3.pro \
     listing_3.4/listing_3_4/listing_3.4.pro \
     listing_3.5/listing_3_5/listing_3.5.pro \
+    listing_3.6/listing_3_6/listing_3.6.pro \
     listing_6.11/listing_6_11/listing_6.11.pro
