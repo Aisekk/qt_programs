@@ -1,6 +1,9 @@
 #include <iostream>
 #include "f.h"
 #include <vector>
+#include <string>
+#include <clocale>
+#include <Windows.h>
 using namespace std;
 
 //void f();
@@ -12,9 +15,24 @@ void rangeFor();
 void For();
 void refToPointer();
 void callMethodThroughNullPtr();
+void stdString();
 
 int main()
 {
+    //setlocale(LC_CTYPE, "");
+
+    //setlocale(LC_ALL, "Russian");
+    //setlocale(LC_CTYPE, "Russian");
+    //system("chcp 1251");
+
+    //setlocale(LC_ALL, "PL_pl.UTF-8");
+    //SetConsoleCP(CP_UTF8);
+    //SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(1251);// установка кодовой страницы win-cp 1251 в поток ввода
+    SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
+
+    cout << "Кириллица в консоли\n";
+
     //f();
     //cout << x << endl;
     //cout << 25u - 50 << endl;
@@ -23,7 +41,8 @@ int main()
     //rangeFor();
     //refToPointer();
     //For();
-    callMethodThroughNullPtr();
+    //callMethodThroughNullPtr();
+    stdString();
     return 0;
 }
 
@@ -157,3 +176,22 @@ void callMethodThroughNullPtr()
     cout << "&a = " << &a << endl;
 }
 
+void stdString()
+{
+    //cout << "1" << endl;
+    std::string en("stroka");
+    std::cout << "строка en: " << en.data() << endl;
+    try
+    {
+        std::wstring ru(L"строка");
+        cout << "строка ру: " << ru.data() << endl;
+    }
+    catch (...)
+    {
+        cout << "except" << endl;
+    }
+
+    //cout << "строка en: " << en.data() << endl;
+    //cout << "строка ру: " << a << endl;
+    //cout << "строка ру: " << endl;
+}
