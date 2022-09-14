@@ -20,14 +20,76 @@ SinglyLinkedList::SinglyLinkedList(std::initializer_list<int> init) :
 
 SinglyLinkedList::~SinglyLinkedList()
 {
-    auto cur = _head->next;
-    while(cur)
+    if(_head)
     {
-        auto temp = cur;
-        cur = cur->next;
-        delete temp;
+        auto cur = _head->next;
+        while(cur)
+        {
+            auto temp = cur;
+            cur = cur->next;
+            delete temp;
+        }
+        delete _head;
     }
-    delete _head;
+}
+
+SinglyLinkedList::SinglyLinkedList(const SinglyLinkedList& other)
+{
+    if(other._head)
+    {
+        _head = new node;
+        auto cur = other._head->next;
+        node* prev = _head;
+        while(cur)
+        {
+            node* newNode = new node(cur->val);
+            prev->next = newNode;
+            prev = newNode;
+            cur = cur->next;
+        }
+    }
+}
+
+SinglyLinkedList& SinglyLinkedList::operator=(const SinglyLinkedList& other)
+{
+    if(other._head)
+    {
+        clear();
+        delete _head;
+
+        _head = new node;
+        auto cur = other._head->next;
+        node* prev = _head;
+        while(cur)
+        {
+            node* newNode = new node(cur->val);
+            prev->next = newNode;
+            prev = newNode;
+            cur = cur->next;
+        }
+    }
+    return *this;
+}
+
+SinglyLinkedList::SinglyLinkedList(SinglyLinkedList&& other) noexcept
+{
+    if(other._head && _head != other._head)
+    {
+        _head = other._head;
+        other._head = nullptr;
+    }
+}
+
+SinglyLinkedList& SinglyLinkedList::operator=(SinglyLinkedList&& other) noexcept
+{
+    if(other._head && _head != other._head)
+    {
+        clear();
+        delete _head;
+        _head = other._head;
+        other._head = nullptr;
+    }
+    return *this;
 }
 
 size_t SinglyLinkedList::size() const
@@ -149,15 +211,28 @@ void SinglyLinkedList::reverse() noexcept
     auto front = _head->next;
     if(!front)
         return;
-    node* newHead = new node;
+//    node* newHead = new node;
+//    while(front)
+//    {
+//        auto next = newHead->next;
+//        newHead->next = front;
+//        front = front->next;
+//        newHead->next->next = next;
+//    }
+//    _head = newHead;
+    node* newNext = nullptr;
     while(front)
     {
-        auto next = newHead->next;
-        newHead->next = front;
+        _head->next = front;
         front = front->next;
-        newHead->next->next = next;
+        _head->next->next = newNext;
+        newNext = _head->next;
     }
-    _head = newHead;
+}
+
+void SinglyLinkedList::swap(SinglyLinkedList& other) noexcept
+{
+    std::swap(_head, other._head);
 }
 
 SinglyLinkedList::iterator SinglyLinkedList::begin() const

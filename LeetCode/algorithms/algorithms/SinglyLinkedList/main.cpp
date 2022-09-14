@@ -1,12 +1,14 @@
 #include <iostream>
 #include "SinglyLinkedList.h"
+#include <vector>
+#include <iterator>
+#include <algorithm>
 using namespace std;
 
 void outList(const SinglyLinkedList& lst);
 void outFront();
 
 void Test_RemoveNthNode();
-void Test_Empty();
 void Test_PushFront();
 void Test_PopFront();
 void Test_InsertAfter();
@@ -14,7 +16,12 @@ void Test_EraseAfter();
 void Test_Reverse();
 void Test_Iterators();
 void Test_RangeFor();
-
+void Test_Empty();
+void Test_Swap();
+void Test_StdInserter();
+void Test_CopyConstructor();
+void Test_CopyOperator();
+void Test_MoveOperator();
 
 int main()
 {
@@ -25,7 +32,13 @@ int main()
     //Test_EraseAfter();
     //Test_Reverse();
     //Test_Iterators();
-    Test_RangeFor();
+    //Test_RangeFor();
+    //Test_Empty();
+    //Test_Swap();
+    //Test_StdInserter();
+    //Test_CopyConstructor();
+    //Test_CopyOperator();
+    Test_MoveOperator();
 
     //cout << "" << endl;
     return 0;
@@ -33,6 +46,11 @@ int main()
 
 void outList(const SinglyLinkedList& lst)
 {
+    if(lst.head() == nullptr)
+    {
+        cout << "list is null" << endl;
+        return;
+    }
     auto cur = lst.head()->next;
     if(!cur)
         cout << "empty list";
@@ -124,6 +142,13 @@ void Test_Reverse()
 {
     SinglyLinkedList lst{1,2,3,4,5,6};
     outList(lst);
+
+    lst.reverse();
+    outList(lst);
+
+    lst.pop_front();
+    outList(lst);
+
     lst.reverse();
     outList(lst);
 }
@@ -141,7 +166,7 @@ void Test_Iterators()
 
 void Test_RangeFor()
 {
-    const SinglyLinkedList lst{1,3,5,7,8};
+    SinglyLinkedList lst{1,3,5,7,8};
     for(const auto& elem : lst)
         cout << elem << " ";
     cout << endl;
@@ -149,6 +174,71 @@ void Test_RangeFor()
 
 void Test_Empty()
 {
+    SinglyLinkedList lst{0,1,2,3,4,5};
+    outList(lst);
+    cout << "empty = " << lst.empty() << endl;
+
+    lst.clear();
+    outList(lst);
+    cout << "empty = " << lst.empty() << endl;
+
+    lst.push_front(7);
+    lst.push_front(5);
+    lst.push_front(1);
+    outList(lst);
+    cout << "empty = " << lst.empty() << endl;
+}
+
+void Test_Swap()
+{
+    SinglyLinkedList lst1{1,2,3,4};
+    SinglyLinkedList lst2{5,6,7,8};
+    outList(lst1);
+    outList(lst2);
+
+    lst1.swap(lst2);
+
+    outList(lst1);
+    outList(lst2);
 
 }
 
+void Test_StdInserter()
+{
+     std::vector<int> vec {1, 2, 3, 4, 5};
+     SinglyLinkedList lst {0, 6, 7, 8};
+
+     //std::copy(lst.begin(), lst.end(), std::inserter(vec, std::next(vec.begin())));
+     //std::copy(vec.begin(), vec.end(), std::inserter(lst, lst.begin()));
+
+     for(auto num : vec)
+         cout << num << " ";
+     cout << endl;
+}
+
+void Test_CopyConstructor()
+{
+    SinglyLinkedList lst {1, 2, 3, 4, 5};
+    SinglyLinkedList lst1(lst);
+    outList(lst1);
+}
+
+void Test_CopyOperator()
+{
+    SinglyLinkedList lst1 {1, 2, 3, 4, 5};
+    SinglyLinkedList lst2 {6, 7, 8, 9};
+
+    lst2 = lst1;
+    outList(lst1);
+    outList(lst2);
+}
+
+void Test_MoveOperator()
+{
+    SinglyLinkedList lst1 {1, 2, 3, 4, 5};
+    SinglyLinkedList lst2 {6, 7, 8, 9};
+
+    lst2 = std::move(lst1);
+    outList(lst1);
+    outList(lst2);
+}

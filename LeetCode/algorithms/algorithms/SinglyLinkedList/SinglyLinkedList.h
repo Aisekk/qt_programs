@@ -19,6 +19,10 @@ public:
     SinglyLinkedList();
     SinglyLinkedList(std::initializer_list<int> init);
     ~SinglyLinkedList();
+    SinglyLinkedList(const SinglyLinkedList& other);
+    SinglyLinkedList& operator=(const SinglyLinkedList& other);
+    SinglyLinkedList(SinglyLinkedList&& other) noexcept;
+    SinglyLinkedList& operator=(SinglyLinkedList&& other) noexcept;
     size_t size() const;
     bool empty() const;
     node* head() const;
@@ -30,6 +34,7 @@ public:
     void erase_after(int pos);
     void clear();
     void reverse() noexcept;
+    void swap(SinglyLinkedList& other) noexcept;
 
     class iterator
     {
