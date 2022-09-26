@@ -15,6 +15,7 @@ private:
         node(int x) : val(x), next(nullptr) {}
         node(int x, node* next) : val(x), next(next) {}
     };
+    node* _head = nullptr;
 public:
     SinglyLinkedList();
     SinglyLinkedList(std::initializer_list<int> init);
@@ -23,8 +24,8 @@ public:
     SinglyLinkedList& operator=(const SinglyLinkedList& other);
     SinglyLinkedList(SinglyLinkedList&& other) noexcept;
     SinglyLinkedList& operator=(SinglyLinkedList&& other) noexcept;
-    size_t size() const;
-    bool empty() const;
+    size_t size() const noexcept;
+    bool empty() const noexcept;
     node* head() const;
     node* back() const;
     const int& front() const;
@@ -76,10 +77,6 @@ public:
 
     iterator begin() const;
     iterator end() const;
-
-private:
-    node* _head = nullptr;
-    size_t _size = 0;
 
 public:
     class Solution

@@ -92,7 +92,7 @@ SinglyLinkedList& SinglyLinkedList::operator=(SinglyLinkedList&& other) noexcept
     return *this;
 }
 
-size_t SinglyLinkedList::size() const
+size_t SinglyLinkedList::size() const noexcept
 {
     size_t size_ = 0;
     auto nod = _head->next;
@@ -104,7 +104,7 @@ size_t SinglyLinkedList::size() const
     return size_;
 }
 
-bool SinglyLinkedList::empty() const
+bool SinglyLinkedList::empty() const noexcept
 {
     if(_head->next)
         return false;
