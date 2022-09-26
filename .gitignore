@@ -25,3 +25,6 @@ Makefile
 *.obj
 *.ilk
 *.pdb
+/employer_tests/build-employer_tests-Desktop_x86_windows_msvc2017_pe_64bit-Debug
+/ORS/progtest/Debug
+/ORS/progtest/Release
