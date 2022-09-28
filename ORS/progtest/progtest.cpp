@@ -118,6 +118,7 @@ public:
     void	print() const;
     
     TransLeg* iterator(TransLeg*& iter) const;
+    void push_back(TransLeg*& backPos, Flight* flight);
 
     bool Empty() const;
     int Length() const;
@@ -128,12 +129,14 @@ private:
     Flight* findCheapestFlight(const Schedule & schedule, const char *depPoint, const char *arrPoint);
 
     /// Находит все авиакомпании в расписании.
-    Carriers* findAllCarriers(const Schedule& schedule);
+    std::unique_ptr<Carriers> findAllCarriers(const Schedule& schedule);
 
     /// Рассчитывает рейс с уникальным перевозчиком (если есть).
     Flight*	findOneCarrierFlight(const Schedule& schedule, const char *depPoint, const char *arrPoint, Carrier carrier);
 
     const double coef = 0.8;
+
+    mutable int length = 0;
 };
 
 //___ Реализация _________________________________
@@ -350,6 +353,7 @@ void Transportation::flush()
         delete toDelete;
     }
     firstLeg = 0;
+    length = 0;
 }
 
 TransLeg* Transportation::iterator(TransLeg*& iter) const
@@ -361,11 +365,26 @@ TransLeg* Transportation::iterator(TransLeg*& iter) const
     return iter;
 }
 
+void Transportation::push_back(TransLeg*& backPos, Flight* flight)
+{
+    TransLeg	*newLeg = new TransLeg;
+    newLeg->flight = *flight;
+
+    if (backPos)
+        backPos->next = newLeg;
+    else
+        firstLeg = newLeg;
+
+    backPos = newLeg;
+
+    length++;
+}
+
 int Transportation::Length() const
 {
-    if (!firstLeg)
-        return 0;
-    int length = 0;
+    if (length > 0)
+        return length;
+    length = 0;
     for (TransLeg *leg = firstLeg; leg; leg = leg->next) {
         length++;
     }
@@ -427,12 +446,12 @@ Flight * Transportation::findCheapestFlight(const Schedule& schedule, const char
     return flightWithMinimalFare;
 }
 
-Carriers* Transportation::findAllCarriers(const Schedule& schedule)
+std::unique_ptr<Carriers> Transportation::findAllCarriers(const Schedule& schedule)
 {
-    Carriers* carriers = new Carriers;
+    std::unique_ptr<Carriers> carriers(new Carriers);
 
     ScheduleItem	*schedItem = 0;
-    Carrier lastCarrier = "\0";
+    Carrier lastCarrier{ "\0" };
     CarrierNode	*lastNode = 0;
     while (schedule.iterator(schedItem))
     {
@@ -472,32 +491,24 @@ Flight* Transportation::findOneCarrierFlight(const Schedule& schedule, const cha
     return flight;
 }
 
-int Transportation::buildCheapest(const Route & route, const Schedule & schedule)
+int Transportation::buildCheapest(const Route& route, const Schedule& schedule)
 {
     flush();
 
     TransLeg	*lastLeg = 0;
 
     RoutePoint	*routePoint = 0;
-    while (route.iterator(routePoint) && routePoint->next) 
+    while (route.iterator(routePoint) && routePoint->next)
     {
         Flight *cheapestFlight = findCheapestFlight(schedule, routePoint->point, routePoint->next->point);
         if (!cheapestFlight) return 1;
 
-        TransLeg	*newLeg = new TransLeg;
-        newLeg->flight = *cheapestFlight;
-
-        if (lastLeg)
-            lastLeg->next = newLeg;
-        else
-            firstLeg = newLeg;
-
-        lastLeg = newLeg;
+        push_back(lastLeg, cheapestFlight);
     }
 
     if (!IsUnique())
     {
-        std::unique_ptr<Carriers> carriers(findAllCarriers(schedule));
+        auto carriers = findAllCarriers(schedule);
         CarrierNode* node = 0;
         while (carriers->iterator(node))
         {
@@ -509,15 +520,7 @@ int Transportation::buildCheapest(const Route & route, const Schedule & schedule
                 auto flight = findOneCarrierFlight(schedule, routePoint->point, routePoint->next->point, node->carrier);
                 if (flight)
                 {
-                    TransLeg* newLeg = new TransLeg;
-                    newLeg->flight = *flight;
-
-                    if (lastLeg)
-                        lastLeg->next = newLeg;
-                    else
-                        trans.firstLeg = newLeg;
-
-                    lastLeg = newLeg;
+                    trans.push_back(lastLeg, flight);
                 }
             }
 
@@ -581,6 +584,9 @@ int main()
 
     printf("\nCheapest transportation:\n");
     trans.print();
+
+    //Transportation	transp;
+    //printf("transp.Length() = %ld\n", transp.Length());
 
     return 0;
 }
