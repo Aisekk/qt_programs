@@ -3,6 +3,7 @@
 #include <iterator>
 #include <algorithm>
 #include <malloc.h>
+#include "CodeGenerator.h"
 using namespace std;
 
 // 1. Перечислите все проблемы, которые вы видите в данном коде:
@@ -95,52 +96,13 @@ int main()
     //int a[] = { -5, 10, 15 };
     //std::cout << std::size(a) << '\n';
 
+    NewCodeGenerator generator(NewCodeGenerator::C_PLUS_PLUS);
+    cout << "cpp generated code: " << generator.generateCode() << std::endl;
+
+    NewCodeGenerator java_generator(NewCodeGenerator::JAVA);
+    cout << "java generated code: " << java_generator.generateCode() << std::endl;
+
     return 0;
 }
 
-//2. Есть класс CodeGenerator, который умеет генерить код на разных языках.
-// Предложите рефакторинг с учетом, что количество языков будет расширяться
-
-class CodeGenerator
-{
-public:
-    enum Lang {JAVA, C_PLUS_PLUS, PHP};
-    CodeGenerator(Lang language) { _language = language; }
-    std::string generateCode()
-    {
-        std::string code;
-        switch(_language) {
-        case JAVA: break;       //return generated java code
-        case C_PLUS_PLUS:
-        {
-            code += someCodeRelatedThing();
-            code += someCodeRelatedThing();
-            break;    //return generated C++ code
-        }
-        case PHP: break;        //return generated PHP code
-        default:
-            throw new std::logic_error("Bad language");
-        }
-        return code;
-    }
-    std::string someCodeRelatedThing() // used in generateCode()
-    {
-        std::string someCode;
-        switch(_language) {
-        case JAVA: break;        //return generated java-related stuff
-        case C_PLUS_PLUS:
-        {
-            someCode = "class Cpp{};";
-            break; //return generated C++-related stuff
-        }
-        case PHP: break;         //return generated PHP-related stuff
-        default:
-            throw new std::logic_error("Bad language");
-        }
-        return someCode;
-    }
-
-private:
-    Lang _language;
-};
 
