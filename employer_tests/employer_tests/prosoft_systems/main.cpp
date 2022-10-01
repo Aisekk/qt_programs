@@ -4,7 +4,10 @@
 #include <algorithm>
 #include <malloc.h>
 #include "CodeGenerator.h"
+#include "task3.h"
 using namespace std;
+
+int foo() { return 3; }
 
 // 1. Перечислите все проблемы, которые вы видите в данном коде:
 class Foo
@@ -96,8 +99,15 @@ int main()
     //int a[] = { -5, 10, 15 };
     //std::cout << std::size(a) << '\n';
 
-    NewCodeGenerator generator(NewCodeGenerator::C_PLUS_PLUS);
-    cout << "cpp generated code: " << generator.generateCode() << std::endl;
+    const int n = 3;
+    //int array[foo()];
+    int array[n];
+    array[0] = 1;
+    array[1] = 2;
+    array[2] = 3;
+
+    NewCodeGenerator cpp_generator(NewCodeGenerator::C_PLUS_PLUS);
+    cout << "cpp generated code: " << cpp_generator.generateCode() << std::endl;
 
     NewCodeGenerator java_generator(NewCodeGenerator::JAVA);
     cout << "java generated code: " << java_generator.generateCode() << std::endl;

@@ -7,4 +7,5 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
-    CodeGenerator.h
+    CodeGenerator.h \
+    task3.h
