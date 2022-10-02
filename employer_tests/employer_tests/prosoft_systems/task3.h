@@ -2,6 +2,7 @@
 #define TASK3_H
 
 #include <stdio.h>
+#include <iostream>
 
 class Feature
 {
@@ -79,53 +80,79 @@ int useFeature()
 
 
 
+enum class FigureType {eUnknown, eCircle, eTriangle, eSquare};
+
 class Figure
 {
 public:
-    Figure() = default;
     virtual ~Figure() = default;
+    virtual void draw(double* points) = 0;
 };
 
 class Circle : public Figure
 {
 public:
     Circle() : Figure() {/*...*/ }
-    void drawCircle(double centerX, double centerY, double radius) { /*...*/ }
+    void draw(double* points) override
+    {
+        auto centerX = points[0];
+        auto centerY = points[1];
+        auto radius = points[2];
+
+        // drawing
+        std::cout << "circle drawing" << std::endl;
+    }
 };
 
 class Polygon : public Figure
 {
 public:
-    Polygon(short size) : Figure() { /*...*/ }
-    void drawPolygon(double* points) { /*...*/ }
+    Polygon(FigureType type, short size) : Figure(), _type(type), _size(size) { /*...*/  }
+    void draw(double* points) override
+    {
+        // drawing
+        if(_type == FigureType::eSquare)
+            std::cout << "square drawing" << std::endl;
+        else
+            std::cout << "polygon drawing, triangle for example" << std::endl;
+    }
+private:
+    FigureType _type;
+    short _size = 0;
 };
 
 class NewFeature
 {
 public:
-    enum FeatureType {eUnknown, eCircle, eTriangle, eSquare};
-    NewFeature(FeatureType type) : _type(type)
+    NewFeature(FigureType type) : _type(type)
     {
+        bool isPolygon = false;
+
         switch (_type)
         {
-        case eCircle:
+        case FigureType::eCircle:
             _pointsNum = 3; break;
-        case eTriangle:
-            _pointsNum = 6; break;
-        case eSquare:
-            _pointsNum = 8; break;
+        case FigureType::eTriangle:
+            _pointsNum = 6; isPolygon = true; break;
+        case FigureType::eSquare:
+            _pointsNum = 8; isPolygon = true; break;
         default:
-            _type = eUnknown;
+            _type = FigureType::eUnknown; break;
         }
 
-        if(_type != eUnknown)
+        if(_type != FigureType::eUnknown)
         {
             _points = new double[_pointsNum];
 
-            if(_type == eCircle)
-                _figure = new Circle;
-            else if(_type == eTriangle || _type == eSquare)
-                _figure = new Polygon(_pointsNum);
+            if(isPolygon)
+            {
+                _figure = new Polygon(type, _pointsNum);
+            }
+            else
+            {
+                if(_type == FigureType::eCircle)
+                    _figure = new Circle();
+            }
         }
     }
     ~NewFeature()
@@ -136,7 +163,7 @@ public:
 
     bool isValid()
     {
-        return _type != eUnknown;
+        return _type != FigureType::eUnknown;
     }
 
     bool read(FILE* file)
@@ -147,19 +174,11 @@ public:
     }
     void draw()
     {
-        if(_type == eCircle)
-        {
-            if(auto circle = dynamic_cast<Circle*>(_figure))
-                circle->drawCircle(_points[0], _points[1], _points[2]);
-        }
-        else if(_type == eTriangle || _type == eSquare)
-        {
-            if(auto polygon = dynamic_cast<Polygon*>(_figure))
-                polygon->drawPolygon(_points);
-        }
+        if(_figure)
+            _figure->draw(_points);
     }
 private:
-    FeatureType _type;
+    FigureType _type;
     short _pointsNum = 0;
     double* _points = nullptr;
     Figure* _figure = nullptr;
@@ -170,8 +189,8 @@ int newMain()
     FILE* file = fopen("features.dat", "r");
     if(file)
     {
-        NewFeature::FeatureType type;
-        if (fread(&type, sizeof(NewFeature::FeatureType), 1, file) != sizeof(NewFeature::FeatureType))
+        FigureType type;
+        if (fread(&type, sizeof(FigureType), 1, file) != sizeof(FigureType))
             return 1;
         NewFeature feature(type);
         if (!feature.isValid())
