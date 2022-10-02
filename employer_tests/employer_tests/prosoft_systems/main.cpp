@@ -106,6 +106,11 @@ int main()
     array[1] = 2;
     array[2] = 3;
 
+    enum class Language : char {JAVA, C_PLUS_PLUS, PHP, Csharp, Ruby, Python};
+
+    cout << "sizeof(Language) = " << sizeof (Language) << endl;
+    cout << "sizeof(NewCodeGenerator::Lang) = " << sizeof (NewCodeGenerator::Lang) << endl;
+
     NewCodeGenerator cpp_generator(NewCodeGenerator::C_PLUS_PLUS);
     cout << "cpp generated code: " << cpp_generator.generateCode() << std::endl;
 
