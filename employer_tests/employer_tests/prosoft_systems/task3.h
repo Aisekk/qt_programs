@@ -80,24 +80,24 @@ int useFeature()
 
 
 
-enum class FigureType {eUnknown, eCircle, eTriangle, eSquare};
+enum class FigureType {Unknown, Circle, Triangle, Square};
 
 class Figure
 {
 public:
     virtual ~Figure() = default;
-    virtual void draw(double* points) = 0;
+    virtual void draw(double* geometry) = 0;
 };
 
 class Circle : public Figure
 {
 public:
     Circle() : Figure() {/*...*/ }
-    void draw(double* points) override
+    void draw(double* geometry) override
     {
-        auto centerX = points[0];
-        auto centerY = points[1];
-        auto radius = points[2];
+        auto centerX = geometry[0];
+        auto centerY = geometry[1];
+        auto radius = geometry[2];
 
         // drawing
         std::cout << "circle drawing" << std::endl;
@@ -108,10 +108,10 @@ class Polygon : public Figure
 {
 public:
     Polygon(FigureType type, short size) : Figure(), _type(type), _size(size) { /*...*/  }
-    void draw(double* points) override
+    void draw(double* geometry) override
     {
         // drawing
-        if(_type == FigureType::eSquare)
+        if(_type == FigureType::Square) // т.к. квадрат - особенный многоугольник (с прямыми углами)
             std::cout << "square drawing" << std::endl;
         else
             std::cout << "polygon drawing, triangle for example" << std::endl;
@@ -130,57 +130,57 @@ public:
 
         switch (_type)
         {
-        case FigureType::eCircle:
-            _pointsNum = 3; break;
-        case FigureType::eTriangle:
-            _pointsNum = 6; isPolygon = true; break;
-        case FigureType::eSquare:
-            _pointsNum = 8; isPolygon = true; break;
+        case FigureType::Circle:
+            _geomObjectsCount = 3; break;
+        case FigureType::Triangle:
+            _geomObjectsCount = 6; isPolygon = true; break;
+        case FigureType::Square:
+            _geomObjectsCount = 8; isPolygon = true; break;
         default:
-            _type = FigureType::eUnknown; break;
+            _type = FigureType::Unknown; break;
         }
 
-        if(_type != FigureType::eUnknown)
+        if(_type != FigureType::Unknown)
         {
-            _points = new double[_pointsNum];
+            _geometry = new double[_geomObjectsCount];
 
             if(isPolygon)
             {
-                _figure = new Polygon(type, _pointsNum);
+                _figure = new Polygon(type, _geomObjectsCount);
             }
             else
             {
-                if(_type == FigureType::eCircle)
+                if(_type == FigureType::Circle)
                     _figure = new Circle();
             }
         }
     }
     ~NewFeature()
     {
-        delete [] _points;
+        delete [] _geometry;
         delete _figure;
     }
 
     bool isValid()
     {
-        return _type != FigureType::eUnknown;
+        return _type != FigureType::Unknown;
     }
 
     bool read(FILE* file)
     {
-        if (!_points)
+        if (!_geometry)
             return false;
-        return fread(&_points, sizeof(double), _pointsNum, file) == _pointsNum * sizeof(double);
+        return fread(&_geometry, sizeof(double), _geomObjectsCount, file) == _geomObjectsCount * sizeof(double);
     }
     void draw()
     {
         if(_figure)
-            _figure->draw(_points);
+            _figure->draw(_geometry);
     }
 private:
     FigureType _type;
-    short _pointsNum = 0;
-    double* _points = nullptr;
+    short _geomObjectsCount = 0;
+    double* _geometry = nullptr; // не points, т.к. кроме точек может содержать еще значение радиуса
     Figure* _figure = nullptr;
 };
 
