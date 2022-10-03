@@ -117,13 +117,13 @@ int main()
     //NewCodeGenerator java_generator(NewCodeGenerator::JAVA);
     //cout << "java generated code: " << java_generator.generateCode() << std::endl;
 
-    NewFeature feature(FigureType::eCircle);
+    NewFeature feature(FigureType::Circle);
     feature.draw();
 
-    NewFeature feature2(FigureType::eTriangle);
+    NewFeature feature2(FigureType::Triangle);
     feature2.draw();
 
-    NewFeature feature3(FigureType::eSquare);
+    NewFeature feature3(FigureType::Square);
     feature3.draw();
 
 
