@@ -107,17 +107,12 @@ public:
 class Polygon : public Figure
 {
 public:
-    Polygon(FigureType type, short size) : Figure(), _type(type), _size(size) { /*...*/  }
+    Polygon(short size) : Figure(), _size(size) { /*...*/  }
     void draw(double* geometry) override
     {
-        // drawing
-        if(_type == FigureType::Square) // т.к. квадрат - особенный многоугольник (с прямыми углами)
-            std::cout << "square drawing" << std::endl;
-        else
-            std::cout << "polygon drawing, triangle for example" << std::endl;
+        std::cout << "polygon drawing" << std::endl;
     }
 private:
-    FigureType _type;
     short _size = 0;
 };
 
@@ -146,7 +141,7 @@ public:
 
             if(isPolygon)
             {
-                _figure = new Polygon(type, _geomObjectsCount);
+                _figure = new Polygon(_geomObjectsCount);
             }
             else
             {
