@@ -1,9 +1,13 @@
 #include <iostream>
-
+#include "general.h"
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    //PointerToFunc();
+    //ThrowDouble();
+    //PrivateInheritance();
+    //TypeId();
+    A_bit_shift_B();
     return 0;
 }
