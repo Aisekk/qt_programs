@@ -7,6 +7,7 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    NullptrObject.h \
     general.h \
     stl.h \
     templates.h

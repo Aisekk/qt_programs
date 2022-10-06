@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+using namespace std;
 
 void Switch()
 {
@@ -58,6 +59,16 @@ void ThrowDouble()
     catch(double){ std::cout << "double" << std::endl; }
 }
 
+void ThrowInt()
+{
+    try{
+        throw 56;
+    }
+    //catch(...){ std::cout << "..." << std::endl; } // catch-all handler must come last
+    catch(long){ std::cout << "long" << std::endl; }
+    catch(int){ std::cout << "int" << std::endl; }
+}
+
 void PrivateInheritance()
 {
     struct First
@@ -101,8 +112,8 @@ namespace A
 {
     struct X{};
     struct Y{};
-    void f(int);
-    void g(X);
+    void f(int){}
+    void g(X){}
 }
 
 namespace B
@@ -117,10 +128,77 @@ void B::main()
 {
     f(100);
     A::X x;
-    A::g(x);
+    B::g(x);
     A::Y y;
     h(y);
 }
 
+void VirtualPublic()
+{
+    class A
+    {
+    public:
+        A(){ std::cout << "A()"; }
+    };
+
+    class B : virtual public A
+    {
+    public:
+        B(){ std::cout << "B()"; }
+    };
+
+    class C : public B
+    {
+    public:
+        C(){ std::cout << "C()"; }
+    };
+
+    C c;
+}
+
+void TypeDimensions()
+{
+    int i = 1;
+    signed int signed_i = 1;
+    unsigned int unsigned_i = 1;
+
+    cout << "sizeof (int) = " << sizeof (int) << endl;
+    cout << "sizeof (signed int) = " << sizeof (signed int) << endl;
+    cout << "sizeof (unsigned int) = " << sizeof (unsigned int) << endl;
+
+    cout << "sizeof (i) = " << sizeof (i) << endl;
+    cout << "sizeof (signed_i) = " << sizeof (signed_i) << endl;
+    cout << "sizeof (unsigned_i) = " << sizeof (unsigned_i) << endl;
+
+    cout << "sizeof (char) = " << sizeof (char) << endl;
+    cout << "sizeof (wchar_t) = " << sizeof (wchar_t) << endl;
+    cout << "sizeof (long) = " << sizeof (long) << endl;
+
+    cout << "sizeof (float) = " << sizeof (float) << endl;
+    cout << "sizeof (double) = " << sizeof (double) << endl;
+    cout << "sizeof (long double) = " << sizeof (long double) << endl;
+}
+
+void CallBaseClassMethod()
+{
+    class Bird
+    {
+    public:
+        void fly() { cout << "fly" << endl; }
+        virtual ~Bird() = default;
+    };
+
+    class Plane : Bird
+    {
+      public:
+        using Bird::fly;
+    };
+
+    //Bird* bird = new Plane();
+    Plane* superjet100 = new Plane();
+    superjet100->fly();
+
+    delete superjet100;
+}
 
 #endif // GENERAL_H
