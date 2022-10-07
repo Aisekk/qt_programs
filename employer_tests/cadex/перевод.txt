@@ -1,0 +1,14 @@
+
+C++ program:
+
+1. Support a few types of 3D geometric curves. 
+Each curve should be able to return a 3D point and a first derivative (3D vector) per parameter t along the curve.
+
+1. Поддержка нескольких типов трехмерных геометрических кривых. 
+Каждая кривая должна иметь возможность возвращать трехмерную точку и первую производную (трехмерный вектор) для каждого параметра t вдоль кривой.
+
+Reqirements to implementation.
+
+2. Has neither explicit memory deallocation nor memory leaks.
+
+2. Не имеет ни явного освобождения памяти, ни утечек памяти.

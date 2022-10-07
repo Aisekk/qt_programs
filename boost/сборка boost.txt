@@ -1,0 +1,8 @@
+https://ventureindustries.com.ua/rukovodstvo/tablica/kak-ustanovit-boost-c
+
+http://dev.mindillusion.ru/boost/  - OLD info
+https://www.cyberforum.ru/boost-cpp/thread1452872.html
+
+msvc:
+b2 toolset=msvc --build-type=complete address-model=64 -j4 --stagedir=D:\tools\boost\boost_1_80_0\vs2015\x64
+

@@ -1,0 +1,4 @@
+https://zhitenev.ru/rabota-s-boost-i-cmake-pod-windows/
+
+http://www.devexp.ru/2010/01/cmake-i-boost/
+
