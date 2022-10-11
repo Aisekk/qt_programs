@@ -1,1 +1,24 @@
 https://stackoverflow.com/questions/18062463/what-is-the-most-efficient-way-to-initialize-a-3d-vector
+
+
+#include <vector>
+
+template <typename T>
+class Vector3D {
+public:
+    Vector3D(size_t d1 = 0, size_t d2 = 0, size_t d3 = 0, T const& t=T()) :
+        _d1(d1), _d2(d2), _d3(d3), _data(d1*d2*d3, t)
+    {}
+
+    T& operator()(size_t i, size_t j, size_t k) {
+        return _data[i*_d2*_d3 + j*_d3 + k];
+    }
+
+    T const& operator()(size_t i, size_t j, size_t k) const {
+        return _data[i*_d2*_d3 + j*_d3 + k];
+    }
+
+private:
+    size_t _d1, _d2, _d3;
+    std::vector<T> _data;
+};
