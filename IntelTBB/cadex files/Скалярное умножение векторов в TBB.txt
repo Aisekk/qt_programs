@@ -1,0 +1,57 @@
+ //Функтор
+    class ScalarMultiplicator
+    {
+    private:
+        double *a, *b;
+        double c;
+    public:
+        explicit ScalarMultiplicator(double *ta, double *tb) : a(ta), b(tb), c(0)
+        {}
+        ScalarMultiplicator(const ScalarMultiplicator& m, oneapi::tbb::split spl) : a(m.a), b(m.b), c(0)
+        {}
+        void operator()(const oneapi::tbb::blocked_range<int>& r)
+        {
+            int begin = r.begin(), end = r.end();
+            c += VectorsMultiplication(&(a[begin]), &(b[begin]), end - begin);
+        }
+        void join(const ScalarMultiplicator& multiplicator)
+        {
+            c += multiplicator.c;
+        }
+        double Result()
+        {
+            return c;
+        }
+    private:
+        //Скалярное умножение векторов
+        double VectorsMultiplication(double *v1, double *v2, int size)
+        {
+            double result = 0;
+            for (int i = 0; i < size; i++)
+                result += v1[i] * v2[i];
+            return result;
+        }
+    };
+
+    int size = 3;
+    //double a[size] = { 1.0,2.0,3.0 };
+    //double b[size] = { 1.0,2.0,3.0 };
+    double* a = new double[size];
+    double* b = new double[size];
+    a[0] = 1.0;
+    a[1] = 2.0;
+    a[2] = 3.0;
+    b[0] = 1.0;
+    b[1] = 2.0;
+    b[2] = 3.0;
+
+    ScalarMultiplicator s(a, b);
+    auto range = tbb::blocked_range<int>(0, size, 10);
+    tbb::parallel_reduce(range, s);
+    //tbb::parallel_deterministic_reduce(range, s);
+    //tbb::parallel_reduce(tbb::blocked_range<int>(0, size-1, 10), s);
+
+    std::cout << "a*b = 1*1 + 2*2 + 3*3 = " << s.Result() << "\n";
+
+    delete[] a;
+    delete[] b;

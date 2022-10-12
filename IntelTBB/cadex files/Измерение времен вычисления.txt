@@ -1,0 +1,13 @@
+
+    std::cout << "\n";
+    auto p1 = std::chrono::system_clock::now();
+    double sum = manager.ComputeCurvesRadiiTotalSum(secondContainer);
+    auto p2 = std::chrono::system_clock::now();
+    std::cout << "sum = " << sum << "\n\n";
+    std::cout << "time = " << std::chrono::duration_cast<std::chrono::microseconds>(p2 - p1).count() << "\n";
+
+    auto p3 = std::chrono::system_clock::now();
+    double parallel_sum = manager.ParallelComputeCurvesRadiiTotalSum(secondContainer);
+    auto p4 = std::chrono::system_clock::now();
+    std::cout << "tbb parallel_sum = " << parallel_sum << std::endl;
+    std::cout << "tbb time = " << std::chrono::duration_cast<std::chrono::microseconds>(p4 - p3).count() << "\n";
