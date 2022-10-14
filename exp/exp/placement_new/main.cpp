@@ -13,7 +13,7 @@ void f()
     //X *pX = new('!') X;
     //delete pX;//('!');
 }
-void array()
+void Array()
 {
     typedef char Str[100];
     char* szName = new Str;
@@ -44,7 +44,8 @@ void alloc_no_throw()
 int main()
 {
     //f();
-    array();
+
+    Array();
     alloc_no_throw();
 
     return 0;

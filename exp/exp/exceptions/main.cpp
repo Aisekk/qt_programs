@@ -1,8 +1,12 @@
 #include <iostream>
 #include <exception>
 #include <stdexcept>
+#include <system_error>
+
 using namespace std;
+
 typedef bool _FILE;
+
 // исключение: позволяет передавать управление и информацию от точки исполнения программы
 // обработчику исключения, связанному с данным участком программы
 struct FileError // пользовательский класс исключения
@@ -17,7 +21,7 @@ _FILE *openData()
     _FILE *pf = nullptr;
     if(!pf)
         //throw FileError(0, 1, 2);
-        throw std::system_error();
+        throw std::system_error(std::error_code());
     return pf;
 }
 void loadData()

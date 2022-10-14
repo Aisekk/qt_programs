@@ -8,9 +8,9 @@ using namespace std;
 class X
 {
 public:
-    X& f1(int i){ cout << " f1: " << i; }
-    X& f2(int i){ cout << " f2: " << i; }
-    X& f3(int i){ cout << " f3: " << i; }
+    X& f1(int i){ cout << " f1: " << i; return *this; }
+    X& f2(int i){ cout << " f2: " << i; return *this; }
+    X& f3(int i){ cout << " f3: " << i; return *this; }
 };
 int f(int p1, int p2)
 {

@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <new>
+#include <functional>
 using namespace std;
 
 void autoData_constData()
@@ -13,7 +14,7 @@ void autoData_constData()
     cout << szData << endl;
 
     // константные данные
-    char *pszData = "abc";
+    const char *pszData = "abc";
     cout << pszData << ' ';
     //pszData[0] = 'A';
     cout << pszData << endl;
@@ -150,7 +151,7 @@ void delete_method()
 void memory_allocation_without_exception()
 {
     //char *pchData = new char[100000000000];
-    char *pchData = new(std::nothrow) char[100000000000];
+    char *pchData = new(std::nothrow) char[1000000000];
     if(pchData != nullptr)
     {
         cout << "memory allocation successful" << endl;

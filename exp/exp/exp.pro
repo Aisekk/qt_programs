@@ -5,8 +5,14 @@ SUBDIRS += \
     MoveComplexObject \
     StaticObjects \
     StrToIntAndIntToStr \
+    bridge \
+    builder \
+    const_memory \
+    decorator \
     different \
+    factory_method \
     for_interviews \
+    prototype \
     string \
     templates \
     virtual \
