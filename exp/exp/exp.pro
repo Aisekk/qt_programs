@@ -7,6 +7,7 @@ SUBDIRS += \
     StrToIntAndIntToStr \
     bridge \
     builder \
+    command \
     const_memory \
     decorator \
     different \
