@@ -45,7 +45,7 @@ public:
 class Command
 {
 protected:
-    Document * _doc;
+    Document* _doc;
 public:
     virtual ~Command() {}
     virtual void Execute() = 0;
@@ -78,13 +78,16 @@ public:
 class Invoker
 {
     vector<Command*> _doneCommands;
-    Document _doc;
-    Command* _command;
+    Document* _doc = nullptr;
+    Command* _command = nullptr;
 public:
+    Invoker() : _doc(new Document) { }
+    ~Invoker(){ delete _doc; }
+
     void Insert( int line, string str )
     {
         _command = new InsertCommand( line, str );
-        _command->setDocument(&_doc);
+        _command->setDocument(_doc);
         _command->Execute();
         _doneCommands.push_back(_command);
     }
@@ -107,15 +110,14 @@ public:
 
     void Show()
     {
-        _doc.Show();
+        _doc->Show();
     }
 };
 
 int main()
 {
     char s = '1';
-    int line = 10;
-    int line_b = 10;
+    int line = 0;
     string str;
     Invoker inv;
     while( s!= 'e' )
@@ -127,10 +129,9 @@ int main()
         case '1':
             cout << "What line to insert: ";
             cin >> line;
-            --line;
             cout << "What to insert: ";
             cin >> str;
-            inv.Insert( line, str );
+            inv.Insert(line, str);
             break;
         case '2':
             inv.Undo();
