@@ -121,20 +121,24 @@ std::vector<ListNode*> case_71() {
     return lists;
 }
 
+void out(ListNode* list) {
+    auto cur = list;
+    while (cur) {
+        cout << cur->val << " ";
+        cur = cur->next;
+    }
+    cout << " " << endl;
+}
+
 int main()
 {
     auto lists = case_1();
     lists = case_71();
 
     Solution sol;
-    ListNode* res =  sol.mergeKLists(lists);
+    ListNode* mergedLists =  sol.mergeKLists(lists);
 
-    auto cur = res; //list1;
-    while (cur) {
-        cout << cur->val << " ";
-        cur = cur->next;
-    }
-    cout << " " << endl;
+    out(mergedLists);
 
     return 0;
 }
