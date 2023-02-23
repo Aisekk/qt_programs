@@ -19,76 +19,63 @@ public:
             return l2;
         if (!l2)
             return l1;
-        int num1 = calcNumber(l1);
-        int num2 = calcNumber(l2);
-        int sum = num1 + num2;
-
-        std::vector<char> digits;
-        while (sum != 0) {
-            char digit = (char)(sum % 10);
-            digits.push_back(digit);
-            sum /= 10;
-        }
 
         auto cur1 = l1;
-        int counter = 0;
-        while (cur1) {
-            counter++;
-            cur1 = cur1->next;
-        }
-        // if (counter < digits.size()) {
-        //     cur1 = l2;
-        //     counter++;
-        // }
-        if (counter < (int)digits.size()) {
-            cur1 = l2;
-            while (cur1) {
-                counter++;
-                if (counter == (int)digits.size()) {
-                    break;
-                }
+        auto cur2 = l2;
+        int add = 0;
+        ListNode* lsum = nullptr;
+        ListNode* last = cur1;
+        ListNode* cache = nullptr;
+        while (cur1 || cur2) {
+            int sum = 0;
+            if (cur1 && cur2) {
+                lsum = cur1;
+                sum = cur1->val + cur2->val + add;
+            } else if (cur1 && !cur2) {
+                lsum = cur1;
+                sum = cur1->val + add;
+            } else if (!cur1 && cur2) {
+                lsum = cur2;
+                sum = cur2->val + add;
+            }
+
+            add = (sum > 9) ? 1 : 0;
+            if (add == 1) {
+                sum -= 10;
+            }
+
+            if (cur1 && cur2) {
+                lsum->val = sum;
+                last = lsum;
                 cur1 = cur1->next;
+                auto temp = cur2;
+                cur2 = cur2->next;
+                if (cache) {
+                    delete temp;
+                } else {
+                    cache = temp;
+                    cache->next = nullptr;
+                }
+                lsum->next = cur1;
+            } else if (cur1 && !cur2) {
+                lsum->val = sum;
+                last = lsum;
+                cur1 = cur1->next;
+                lsum->next = cur1;
+            } else if (!cur1 && cur2) {
+                lsum->val = sum;
+                last->next = cur2;
+                last = lsum;
+                cur2 = cur2->next;
+                lsum->next = cur2;
             }
         }
-        while (cur1) {
-            auto next = cur1->next;
-            delete cur1;
-            cur1 = next;
+        if (add == 1) {
+            cache->val = add;
+            last->next = cache;
         }
 
-        cur1 = l1;
-        for (auto digit : digits) {
-            cur1->val = (int)digit;
-            cur1 = cur1->next;
-            if (!cur1) {
-                break;
-            }
-        }
-        // while (cur1) {
-        //     auto next = cur1->next;
-        //     delete cur1;
-        //     cur1 = next;
-        // }
         return l1;
-    }
-
-    int calcNumber(ListNode* list) {
-        std::vector<char> digits;
-        digits.reserve(10);
-        auto cur = list;
-        while (cur) {
-            digits.push_back((char)cur->val);
-            cur = cur->next;
-        }
-        if (digits.empty())
-            return 0;
-        int num = 0;
-        int m = std::pow(10, (int)digits.size() - 1);
-        for (auto it = digits.rbegin(); it != digits.rend(); ++it) {
-            num += ((int)*it) * m;
-            m /= 10;
-        }
-        return num;
     }
 };
 
@@ -119,8 +106,17 @@ ListNode* num_465() {
     return head;
 }
 
-int main()
-{
+ListNode* num_9(int n) {
+    ListNode* head = new ListNode(9);
+    ListNode* cur = head;
+    for (int i = 0; i < n - 1; ++i) {
+        cur->next = new ListNode(9);
+        cur = cur->next;
+    }
+    return head;
+}
+
+void case_1() {
     auto l1 = num_342();
     auto l2 = num_465();
     out(l1);
@@ -130,6 +126,26 @@ int main()
     ListNode* sumList =  sol.addTwoNumbers(l1,l2);
 
     out(sumList);
+    cout << '\n';
+}
+
+void case_3() {
+    auto l1 = num_9(7);
+    auto l2 = num_9(4);
+    out(l1);
+    out(l2);
+
+    Solution sol;
+    ListNode* sumList =  sol.addTwoNumbers(l1,l2);
+
+    out(sumList);
+    cout << '\n';
+}
+
+int main()
+{
+    case_1();
+    case_3();
 
     return 0;
 }
