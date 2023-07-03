@@ -1,10 +1,38 @@
 #include "mainwindow.h"
+#include "header.h"
+#include "file1.h"
+//#include "file2.h"
 
 #include <QApplication>
 #include <QtGlobal>
 #include <QList>
+#include <QLinkedList>
 #include <list>
 #include <QDebug>
+
+extern int a;
+class Stroka;
+Stroka stroka();
+
+extern int f(int x);
+int f(int x) { return x + 1; }
+//int f(int x) { return x + 2; }
+
+class E {
+public:
+    int getZero() { return zero; }
+protected:
+    int zero = 0;
+};
+class A : public E {
+public:
+    Stroka stroka() const;
+    int getZero2() { zero = 1; return zero; }
+    std::string str;
+    static int x;
+    const static int y = 0;
+};
+int A::x = 0;
 
 void get_7E_Address() {
     quint16 addr(0x3F00);
@@ -31,10 +59,21 @@ QString calcCRC() {
     return strCRC;
 }
 
-void compareStlQt() {
+void compareStlQtContainers() {
     QList<int> qlist;
+    QLinkedList<int> qlinkedlist;
     std::list<int> stdlist;
-    qInfo() << "sizeof (qlist) = " << sizeof (qlist) << "; sizeof (stdlist) = " << sizeof (stdlist);
+    qInfo() << "sizeof (qlist) = " << sizeof (qlist) << "; sizeof (qlinkedlist) = " << sizeof (qlinkedlist)
+            << "; sizeof (stdlist) = " << sizeof (stdlist);
+}
+
+void divideByZero() {
+    //int n = 0;
+    //int m = 5 / n; qInfo() << "m = " << m;
+    double p = std::numeric_limits<double>::epsilon() / 2; // 0.0;
+    double q = 5.0 / p; qInfo() << "q = " << q;
+    double r = 1.0 * q; qInfo() << "r = " << r;
+    double s = 1.0 / q; qInfo() << "s = " << s;
 }
 
 int main(int argc, char *argv[])
@@ -46,8 +85,19 @@ int main(int argc, char *argv[])
     //get_7E_Address();
 
     //qInfo() << "CRC: " << calcCRC();
-    //compareStlQt();
-    qInfo() << "sizeof(unsigned int) = " << sizeof(unsigned int);
+    //compareStlQtContainers();
+    //qInfo() << "sizeof(unsigned int) = " << sizeof(unsigned int);
+
+    //A a;
+    //a.x = 5;
+    //qInfo() << a.getZero();
+
+    //function1();
+    //function2();
+    //qInfo() << variable;
+
+    //foo();
+    divideByZero();
 
     return 0;// a.exec();
 }
