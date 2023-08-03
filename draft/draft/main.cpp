@@ -2,6 +2,7 @@
 #include "header.h"
 #include "file1.h"
 //#include "file2.h"
+#include "const_char.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -97,7 +98,8 @@ int main(int argc, char *argv[])
     //qInfo() << variable;
 
     //foo();
-    divideByZero();
+    //divideByZero();
+    constness();
 
     return 0;// a.exec();
 }

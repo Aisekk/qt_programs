@@ -15,6 +15,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    const_char.h \
     file1.h \
     file2.h \
     foo.h \
