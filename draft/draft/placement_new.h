@@ -23,6 +23,7 @@ public:
 
 void pureCall()
 {
+    cout << "sizeof(Base) = " << sizeof(Base) << endl;
     auto* pd = new (pool) Derived();
     Base* pb = pd;
     pd->~Derived();

@@ -18,7 +18,10 @@ SOURCES += \
     unions.cpp
 
 HEADERS += \
+    abstract_class.h \
+    arrays.h \
     const_char.h \
+    delete_this.h \
     file1.h \
     file2.h \
     foo.h \
@@ -27,7 +30,10 @@ HEADERS += \
     object.h \
     operators.h \
     placement_new.h \
+    print.h \
     pure_virtual_func_call.h \
+    romb_problem.h \
+    sort.h \
     static_obj.h \
     static_obj_include.h \
     unions.h

@@ -9,6 +9,12 @@
 #include "operators.h"
 #include "pure_virtual_func_call.h"
 #include "placement_new.h"
+#include "romb_problem.h"
+#include "abstract_class.h"
+#include "sort.h"
+#include "print.h"
+#include "arrays.h"
+#include "delete_this.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -102,7 +108,14 @@ class B1 : public A1 { public: void f() { std::cout << "B1" << std::endl; } };
 
 int main(int argc, char *argv[])
 {
-    PlacementNew::pureCall();
+    DeleteThis::SomeResource *some = new DeleteThis::SomeResource ; some->Close();
+    //int *a = Arrays::zeroArray(); std::cout << "sizeof(ZeroArray) = " << sizeof(a) << "; a[0] = " << a[0] << std::endl; delete [] a;
+    //int a[] = {2,3,1};   Sort::bubble_sort(a, 3);   Print::print(a, 3);
+    //std::vector<int> a = {2,3,1};   Sort::bubble_sort(a);   Print::print(a);
+
+    //Abstract::abstractOut();
+    //RombProblem::rombProblem();
+    //PlacementNew::pureCall();
     //PureCall::pureVirtCall();
     //B1 *a = new B1;
     //a->f();
@@ -116,8 +129,8 @@ int main(int argc, char *argv[])
     //if_c17();
     //unary();
     //qInfo() << "staticObject.read() = " << staticObject.read();
-    outUnion_U1();
-    outUnion_U2();
+    //outUnion_U1();
+    //outUnion_U2();
     //QApplication a(argc, argv);
     //MainWindow w;
     //w.show();
@@ -138,7 +151,7 @@ int main(int argc, char *argv[])
 
     //foo();
     //divideByZero();
-    constness();
+    //constness();
 
     return 0;// a.exec();
 }
