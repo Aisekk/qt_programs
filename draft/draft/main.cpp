@@ -3,6 +3,12 @@
 #include "file1.h"
 //#include "file2.h"
 #include "const_char.h"
+#include "unions.h"
+#include "static_obj.h"
+#include "static_obj_include.h"
+#include "operators.h"
+#include "pure_virtual_func_call.h"
+#include "placement_new.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -77,8 +83,41 @@ void divideByZero() {
     double s = 1.0 / q; qInfo() << "s = " << s;
 }
 
+void if_c17() {
+    std::map<int, std::string> m = {{1, "one"}, {2, "two"}, {3, "three"}};
+    if (auto it = m.find(2); it != m.end())
+        std::cout << it->second << std::endl;
+}
+
+class Terminate {
+    int field = 1;
+public:
+    int get() const { return field; }
+    int out() const { std::cout << "out" << std::endl; }
+};
+
+class A1 { public: void f() { std::cout << "A1" << std::endl; } };
+class B1 : public A1 { public: void f() { std::cout << "B1" << std::endl; } };
+
+
 int main(int argc, char *argv[])
 {
+    PlacementNew::pureCall();
+    //PureCall::pureVirtCall();
+    //B1 *a = new B1;
+    //a->f();
+    //A1 a1;
+
+
+    //Terminate *t = nullptr;
+    //t->out();
+    //t->get(); termination
+
+    //if_c17();
+    //unary();
+    //qInfo() << "staticObject.read() = " << staticObject.read();
+    outUnion_U1();
+    outUnion_U2();
     //QApplication a(argc, argv);
     //MainWindow w;
     //w.show();

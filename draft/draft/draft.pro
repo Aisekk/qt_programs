@@ -12,7 +12,10 @@ SOURCES += \
     file1.cpp \
     file2.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    object.cpp \
+    operators.cpp \
+    unions.cpp
 
 HEADERS += \
     const_char.h \
@@ -20,7 +23,14 @@ HEADERS += \
     file2.h \
     foo.h \
     header.h \
-    mainwindow.h
+    mainwindow.h \
+    object.h \
+    operators.h \
+    placement_new.h \
+    pure_virtual_func_call.h \
+    static_obj.h \
+    static_obj_include.h \
+    unions.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
