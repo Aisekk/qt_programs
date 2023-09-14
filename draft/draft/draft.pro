@@ -22,6 +22,7 @@ HEADERS += \
     arrays.h \
     const_char.h \
     delete_this.h \
+    extern.h \
     file1.h \
     file2.h \
     foo.h \

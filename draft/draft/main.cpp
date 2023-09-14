@@ -15,6 +15,7 @@
 #include "print.h"
 #include "arrays.h"
 #include "delete_this.h"
+#include "extern.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -22,6 +23,9 @@
 #include <QLinkedList>
 #include <list>
 #include <QDebug>
+
+int global = 10;
+static int static_var = 11;
 
 extern int a;
 class Stroka;
@@ -108,7 +112,9 @@ class B1 : public A1 { public: void f() { std::cout << "B1" << std::endl; } };
 
 int main(int argc, char *argv[])
 {
-    DeleteThis::SomeResource *some = new DeleteThis::SomeResource ; some->Close();
+    Extern::outGlobal();
+    //std::cout << "I = " << I << std::endl;
+    //DeleteThis::SomeResource *some = new DeleteThis::SomeResource ; some->Close();
     //int *a = Arrays::zeroArray(); std::cout << "sizeof(ZeroArray) = " << sizeof(a) << "; a[0] = " << a[0] << std::endl; delete [] a;
     //int a[] = {2,3,1};   Sort::bubble_sort(a, 3);   Print::print(a, 3);
     //std::vector<int> a = {2,3,1};   Sort::bubble_sort(a);   Print::print(a);

@@ -3,6 +3,6 @@
 
 #include "static_obj.h"
 
-int r = staticObject.read();
+//int r = staticObject.read();
 
 #endif // STATIC_OBJ_INCLUDE_H

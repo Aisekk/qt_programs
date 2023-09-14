@@ -7,7 +7,7 @@
 //namespace {
 //const double Imax = 100.0;
 //}
-//static const double I = 100.0;
+static const double I = 100.0;
 
 void function1();
 static void foo() { qInfo() << "file1: foo()"; }
