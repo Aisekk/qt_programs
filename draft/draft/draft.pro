@@ -20,6 +20,7 @@ SOURCES += \
 HEADERS += \
     abstract_class.h \
     arrays.h \
+    auto.h \
     const_char.h \
     delete_this.h \
     extern.h \

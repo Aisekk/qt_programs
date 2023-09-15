@@ -17,6 +17,7 @@
 #include "delete_this.h"
 #include "extern.h"
 #include "reverse.h"
+#include "auto.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -113,7 +114,8 @@ class B1 : public A1 { public: void f() { std::cout << "B1" << std::endl; } };
 
 int main(int argc, char *argv[])
 {
-    Reverse::outReverseResults();
+    AutoTypeOut::autoOut();
+    //Reverse::outReverseResults();
     //Extern::outGlobal();
     //std::cout << "I = " << I << std::endl;
     //DeleteThis::SomeResource *some = new DeleteThis::SomeResource ; some->Close();
