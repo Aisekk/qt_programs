@@ -7,10 +7,12 @@
 
 namespace Reverse {
 void reverse(std::string &s);
+void reverse2(std::string &s);
 void reverse(char *s);
 
 void outReverseResults() {
     std::string stroka("alibaba"); reverse(stroka); std::cout << stroka << std::endl;
+    std::string stroka2("boobab"); reverse2(stroka2); std::cout << stroka2 << std::endl;
     //int n = 0;
     //char s[8] = "alibaba"; n = sizeof("alibaba");
 
@@ -30,7 +32,7 @@ void reverse(std::string &s) {
     auto first = s.begin(), last = s.end();
     while (first != last) {
         --last;
-        if (first == last) {
+        if (first >= last) {
             break;
         }
         std::swap(*first, *last);
@@ -38,11 +40,22 @@ void reverse(std::string &s) {
     }
 }
 
+void reverse2(std::string &s) {
+    for (int i = 0, j = (int)s.size() - 1; i < (int)s.size(); ++i, --j) {
+        //std::cout << i << ' ' << j << ' ';
+        if (i >= j) {
+            break;
+        }
+        std::swap(s[i], s[j]);
+    }
+    //std::cout << std::endl;
+}
+
 void reverse(char *s) {
     char *l = &s[std::strlen(s)];
     while (*s != '\0') {
         --l;
-        if (s == l) {
+        if (s >= l) {
             break;
         }
         std::swap(*s, *l);
