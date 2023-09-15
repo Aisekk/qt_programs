@@ -33,6 +33,7 @@ HEADERS += \
     placement_new.h \
     print.h \
     pure_virtual_func_call.h \
+    reverse.h \
     romb_problem.h \
     sort.h \
     static_obj.h \

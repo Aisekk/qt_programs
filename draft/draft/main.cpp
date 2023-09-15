@@ -16,6 +16,7 @@
 #include "arrays.h"
 #include "delete_this.h"
 #include "extern.h"
+#include "reverse.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -112,7 +113,8 @@ class B1 : public A1 { public: void f() { std::cout << "B1" << std::endl; } };
 
 int main(int argc, char *argv[])
 {
-    Extern::outGlobal();
+    Reverse::outReverseResults();
+    //Extern::outGlobal();
     //std::cout << "I = " << I << std::endl;
     //DeleteThis::SomeResource *some = new DeleteThis::SomeResource ; some->Close();
     //int *a = Arrays::zeroArray(); std::cout << "sizeof(ZeroArray) = " << sizeof(a) << "; a[0] = " << a[0] << std::endl; delete [] a;
