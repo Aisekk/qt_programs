@@ -18,6 +18,8 @@
 #include "extern.h"
 #include "reverse.h"
 #include "auto.h"
+#include "init.h"
+#include "constructors.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -114,14 +116,20 @@ class B1 : public A1 { public: void f() { std::cout << "B1" << std::endl; } };
 
 int main(int argc, char *argv[])
 {
-    AutoTypeOut::autoOut();
+    Ctrs::out();
+    //Init::out();
+    //AutoTypeOut::autoOut();
     //Reverse::outReverseResults();
     //Extern::outGlobal();
     //std::cout << "I = " << I << std::endl;
     //DeleteThis::SomeResource *some = new DeleteThis::SomeResource ; some->Close();
     //int *a = Arrays::zeroArray(); std::cout << "sizeof(ZeroArray) = " << sizeof(a) << "; a[0] = " << a[0] << std::endl; delete [] a;
     //int a[] = {2,3,1};   Sort::bubble_sort(a, 3);   Print::print(a, 3);
-    //std::vector<int> a = {2,3,1};   Sort::bubble_sort(a);   Print::print(a);
+
+    //std::vector<int> a = {5,2,0,3,1,4};
+    //Sort::bubble_sort(a);
+    //Sort::bubble_sort_it(a);
+    //Print::print(a);
 
     //Abstract::abstractOut();
     //RombProblem::rombProblem();

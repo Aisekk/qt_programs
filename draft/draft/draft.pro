@@ -22,12 +22,14 @@ HEADERS += \
     arrays.h \
     auto.h \
     const_char.h \
+    constructors.h \
     delete_this.h \
     extern.h \
     file1.h \
     file2.h \
     foo.h \
     header.h \
+    init.h \
     mainwindow.h \
     object.h \
     operators.h \
