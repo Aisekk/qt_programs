@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cassert>
+#include <QDebug>
 
 namespace Ctrs {
 
@@ -10,8 +11,11 @@ class A {
 public:
     int p{};
 };
+std::ostream& operator<<(std::ostream &os, const A &a) {
+    return os << a.p;
+}
 
-void autoGen() {
+void autoCtrsGen() {
     A a;
     // copy ctr
     A a0 = a;
@@ -28,15 +32,17 @@ void autoGen() {
     // move opr
     a2.p = 2;
     A a4;
+    std::cout << "&a4 = " << &a4 << "; &a2 = " << &a2 << std::endl;
     a4 = std::move(a2);
+    std::cout << "&a4 = " << &a4 << "; &a2 = " << &a2 << std::endl;
     assert(a4.p == 2);
     assert(a2.p == 2);
-    std::cout << a4.p << std::endl;
-    std::cout << a2.p << std::endl;
+    assert(&a2 != &a4);
+    std::cout << "a4 = " << a4 << "; a2 = " << a2 << std::endl;
 }
 
 void out() {
-   autoGen();
+   autoCtrsGen();
 
 }
 

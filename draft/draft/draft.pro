@@ -30,6 +30,7 @@ HEADERS += \
     foo.h \
     header.h \
     init.h \
+    initlist.h \
     mainwindow.h \
     object.h \
     operators.h \

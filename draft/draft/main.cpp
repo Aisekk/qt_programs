@@ -20,6 +20,7 @@
 #include "auto.h"
 #include "init.h"
 #include "constructors.h"
+#include "initlist.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -29,31 +30,7 @@
 #include <QDebug>
 
 int global = 10;
-static int static_var = 11;
-
-extern int a;
-class Stroka;
-Stroka stroka();
-
-extern int f(int x);
-int f(int x) { return x + 1; }
-//int f(int x) { return x + 2; }
-
-class E {
-public:
-    int getZero() { return zero; }
-protected:
-    int zero = 0;
-};
-class A : public E {
-public:
-    Stroka stroka() const;
-    int getZero2() { zero = 1; return zero; }
-    std::string str;
-    static int x;
-    const static int y = 0;
-};
-int A::x = 0;
+//static int static_var = 11;
 
 void get_7E_Address() {
     quint16 addr(0x3F00);
@@ -97,26 +74,11 @@ void divideByZero() {
     double s = 1.0 / q; qInfo() << "s = " << s;
 }
 
-void if_c17() {
-    std::map<int, std::string> m = {{1, "one"}, {2, "two"}, {3, "three"}};
-    if (auto it = m.find(2); it != m.end())
-        std::cout << it->second << std::endl;
-}
-
-class Terminate {
-    int field = 1;
-public:
-    int get() const { return field; }
-    int out() const { std::cout << "out" << std::endl; }
-};
-
-class A1 { public: void f() { std::cout << "A1" << std::endl; } };
-class B1 : public A1 { public: void f() { std::cout << "B1" << std::endl; } };
-
 
 int main(int argc, char *argv[])
 {
-    Ctrs::out();
+    InitList::out();
+    //Ctrs::out();
     //Init::out();
     //AutoTypeOut::autoOut();
     //Reverse::outReverseResults();
@@ -126,10 +88,10 @@ int main(int argc, char *argv[])
     //int *a = Arrays::zeroArray(); std::cout << "sizeof(ZeroArray) = " << sizeof(a) << "; a[0] = " << a[0] << std::endl; delete [] a;
     //int a[] = {2,3,1};   Sort::bubble_sort(a, 3);   Print::print(a, 3);
 
-    //std::vector<int> a = {5,2,0,3,1,4};
-    //Sort::bubble_sort(a);
-    //Sort::bubble_sort_it(a);
-    //Print::print(a);
+//    std::vector<int> a = {5,2,0,3,1,4};
+//    Sort::bubble_sort(a);
+//    Sort::bubble_sort_it(a);
+//    Print::print(a);
 
     //Abstract::abstractOut();
     //RombProblem::rombProblem();
