@@ -21,6 +21,7 @@
 #include "init.h"
 #include "constructors.h"
 #include "initlist.h"
+#include "hash_heap.h"
 
 #include <QApplication>
 #include <QtGlobal>

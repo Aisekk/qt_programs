@@ -28,6 +28,7 @@ HEADERS += \
     file1.h \
     file2.h \
     foo.h \
+    hash_heap.h \
     header.h \
     init.h \
     initlist.h \
