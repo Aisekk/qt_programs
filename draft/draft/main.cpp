@@ -21,6 +21,9 @@
 #include "init.h"
 #include "constructors.h"
 #include "initlist.h"
+#include "lambdas.h"
+#include "cast.h"
+#include "move.h"
 #include "hash_heap.h"
 
 #include <QApplication>
@@ -78,9 +81,15 @@ void divideByZero() {
 
 int main(int argc, char *argv[])
 {
-    InitList::out();
+    // algorithm tasks
+    //Heap::topKFrequentOut();
+
+    Cast::boolCasting();
+    //Lambdas::func();
+    //InitList::out();
     //Ctrs::out();
     //Init::out();
+    //Init::sumOut();
     //AutoTypeOut::autoOut();
     //Reverse::outReverseResults();
     //Extern::outGlobal();

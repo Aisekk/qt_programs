@@ -21,6 +21,7 @@ HEADERS += \
     abstract_class.h \
     arrays.h \
     auto.h \
+    cast.h \
     const_char.h \
     constructors.h \
     delete_this.h \
@@ -32,12 +33,15 @@ HEADERS += \
     header.h \
     init.h \
     initlist.h \
+    lambdas.h \
     mainwindow.h \
+    move.h \
     object.h \
     operators.h \
     placement_new.h \
     print.h \
     pure_virtual_func_call.h \
+    qt_object.h \
     reverse.h \
     romb_problem.h \
     sort.h \

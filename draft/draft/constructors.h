@@ -9,6 +9,14 @@ namespace Ctrs {
 
 class A {
 public:
+    //A() = default;
+    //~A() = default;
+    A(){ std::cout << "A()" << std::endl; }
+    ~A(){ std::cout << "~A()" << std::endl; }
+    A(const A &other){ std::cout << "A(const A&)" << std::endl; p = other.p; }
+    A& operator=(const A &other){ std::cout << "A& operator=(const A&)" << std::endl; p = other.p; return *this; }
+    //A(A&&){ std::cout << "A(A&&)" << std::endl; }
+    //A& operator=(A&&){ std::cout << "A& operator=(A&&)" << std::endl; }
     int p{};
 };
 std::ostream& operator<<(std::ostream &os, const A &a) {
@@ -41,9 +49,16 @@ void autoCtrsGen() {
     std::cout << "a4 = " << a4 << "; a2 = " << a2 << std::endl;
 }
 
-void out() {
-   autoCtrsGen();
+void moveCancel() {
+    A a;
+    A a2 = std::move(a);
+    A a3;
+    a3 = std::move(a);
+}
 
+void out() {
+   //autoCtrsGen();
+    moveCancel();
 }
 
 }
