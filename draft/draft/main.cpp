@@ -25,6 +25,7 @@
 #include "cast.h"
 #include "move.h"
 #include "hash_heap.h"
+#include "hash_table.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -83,8 +84,10 @@ int main(int argc, char *argv[])
 {
     // algorithm tasks
     //Heap::topKFrequentOut();
+    //HashTable::outHashTableParams();
+    HashTable::checkMyHashMap();
 
-    Cast::boolCasting();
+    //Cast::boolCasting();
     //Lambdas::func();
     //InitList::out();
     //Ctrs::out();

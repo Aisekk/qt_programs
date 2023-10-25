@@ -30,6 +30,7 @@ HEADERS += \
     file2.h \
     foo.h \
     hash_heap.h \
+    hash_table.h \
     header.h \
     init.h \
     initlist.h \
