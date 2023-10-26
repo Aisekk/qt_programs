@@ -26,6 +26,9 @@
 #include "move.h"
 #include "hash_heap.h"
 #include "hash_table.h"
+#include "pointers.h"
+#include "align.h"
+#include "remove_erase.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -85,8 +88,11 @@ int main(int argc, char *argv[])
     // algorithm tasks
     //Heap::topKFrequentOut();
     //HashTable::outHashTableParams();
-    HashTable::checkMyHashMap();
+    //HashTable::checkMyHashMap();
 
+    //STL::test();
+    //Align::testAlign();
+    //Pointers::test();
     //Cast::boolCasting();
     //Lambdas::func();
     //InitList::out();

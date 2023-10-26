@@ -40,9 +40,11 @@ HEADERS += \
     object.h \
     operators.h \
     placement_new.h \
+    pointers.h \
     print.h \
     pure_virtual_func_call.h \
     qt_object.h \
+    remove_erase.h \
     reverse.h \
     romb_problem.h \
     sort.h \
