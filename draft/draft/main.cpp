@@ -28,7 +28,7 @@
 #include "hash_table.h"
 #include "pointers.h"
 #include "align.h"
-#include "remove_erase.h"
+#include "stl_algs.h"
 
 #include <QApplication>
 #include <QtGlobal>

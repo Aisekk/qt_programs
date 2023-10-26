@@ -1,5 +1,5 @@
-#ifndef REMOVE_ERASE_H
-#define REMOVE_ERASE_H
+#ifndef STL_ALGS_H
+#define STL_ALGS_H
 
 #include <vector>
 #include <algorithm>
@@ -18,10 +18,19 @@ void remove_erase_vec() {
     Print::print(v);
 }
 
+void mergeArrays() {
+     std::vector<int> v1 = {0,2,4,6,8};
+     std::vector<int> v2 = {1,3,5,7,9};
+     std::vector<int> v;
+     std::merge(v1.begin(), v1.end(), v2.begin(), v2.end(), std::back_inserter(v));
+     Print::print(v);
+}
+
 void test() {
-    remove_erase_vec();
+    //remove_erase_vec();
+    mergeArrays();
 }
 
 }
 
-#endif // REMOVE_ERASE_H
+#endif // STL_ALGS_H

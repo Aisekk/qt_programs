@@ -44,12 +44,12 @@ HEADERS += \
     print.h \
     pure_virtual_func_call.h \
     qt_object.h \
-    remove_erase.h \
     reverse.h \
     romb_problem.h \
     sort.h \
     static_obj.h \
     static_obj_include.h \
+    stl_algs.h \
     unions.h
 
 # Default rules for deployment.
