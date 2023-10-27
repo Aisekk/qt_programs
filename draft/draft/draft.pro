@@ -23,6 +23,7 @@ HEADERS += \
     auto.h \
     cast.h \
     const_char.h \
+    constructor.h \
     constructors.h \
     delete_this.h \
     extern.h \
@@ -46,6 +47,7 @@ HEADERS += \
     qt_object.h \
     reverse.h \
     romb_problem.h \
+    smart_ptrs.h \
     sort.h \
     static_obj.h \
     static_obj_include.h \

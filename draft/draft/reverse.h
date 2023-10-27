@@ -41,11 +41,8 @@ void reverse(std::string &s) {
 }
 
 void reverse2(std::string &s) {
-    for (int i = 0, j = (int)s.size() - 1; i < (int)s.size(); ++i, --j) {
+    for (int i = 0, j = (int)s.size() - 1; i < j; ++i, --j) {
         //std::cout << i << ' ' << j << ' ';
-        if (i >= j) {
-            break;
-        }
         std::swap(s[i], s[j]);
     }
     //std::cout << std::endl;
