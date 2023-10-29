@@ -47,6 +47,7 @@ HEADERS += \
     qt_object.h \
     reverse.h \
     romb_problem.h \
+    sets_tasks.h \
     smart_ptrs.h \
     sort.h \
     static_obj.h \

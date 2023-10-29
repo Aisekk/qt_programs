@@ -31,6 +31,7 @@
 #include "stl_algs.h"
 #include "smart_ptrs.h"
 #include "constructor.h"
+#include "sets_tasks.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -92,6 +93,7 @@ int main(int argc, char *argv[])
     //HashTable::outHashTableParams();
     //HashTable::checkMyHashMap();
 
+    SetsTasks::test();
     //Constructor::test();
     //SmartPtrs::test();
     //STL::test();
@@ -104,7 +106,7 @@ int main(int argc, char *argv[])
     //Init::out();
     //Init::sumOut();
     //AutoTypeOut::autoOut();
-    Reverse::outReverseResults();
+    //Reverse::outReverseResults();
     //Extern::outGlobal();
     //std::cout << "I = " << I << std::endl;
     //DeleteThis::SomeResource *some = new DeleteThis::SomeResource ; some->Close();
