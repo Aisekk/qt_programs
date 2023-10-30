@@ -32,6 +32,8 @@
 #include "smart_ptrs.h"
 #include "constructor.h"
 #include "sets_tasks.h"
+#include "sizeof.h"
+#include "overflow.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -93,6 +95,9 @@ int main(int argc, char *argv[])
     //HashTable::outHashTableParams();
     //HashTable::checkMyHashMap();
 
+    //PlacementNew::test();
+    //Overflow::overflow();
+    //SizeOf::test();
     SetsTasks::test();
     //Constructor::test();
     //SmartPtrs::test();

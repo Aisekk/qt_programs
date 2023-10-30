@@ -40,6 +40,7 @@ HEADERS += \
     move.h \
     object.h \
     operators.h \
+    overflow.h \
     placement_new.h \
     pointers.h \
     print.h \
@@ -48,6 +49,7 @@ HEADERS += \
     reverse.h \
     romb_problem.h \
     sets_tasks.h \
+    sizeof.h \
     smart_ptrs.h \
     sort.h \
     static_obj.h \
