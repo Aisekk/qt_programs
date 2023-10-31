@@ -34,6 +34,8 @@
 #include "sets_tasks.h"
 #include "sizeof.h"
 #include "overflow.h"
+#include "test_std_algs.h"
+#include "stl_sorts.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -90,6 +92,15 @@ void divideByZero() {
 
 int main(int argc, char *argv[])
 {
+    // test std algs
+    //SetsTasks::test();
+    //TestStdAlgs::test_for_each();
+    //STL::test();
+
+    // sorts
+    StlSorts::test();
+    //Sort::test();
+
     // algorithm tasks
     //Heap::topKFrequentOut();
     //HashTable::outHashTableParams();
@@ -98,10 +109,8 @@ int main(int argc, char *argv[])
     //PlacementNew::test();
     //Overflow::overflow();
     //SizeOf::test();
-    SetsTasks::test();
     //Constructor::test();
     //SmartPtrs::test();
-    //STL::test();
     //Align::testAlign();
     //Pointers::test();
     //Cast::boolCasting();
@@ -115,13 +124,6 @@ int main(int argc, char *argv[])
     //Extern::outGlobal();
     //std::cout << "I = " << I << std::endl;
     //DeleteThis::SomeResource *some = new DeleteThis::SomeResource ; some->Close();
-    //int *a = Arrays::zeroArray(); std::cout << "sizeof(ZeroArray) = " << sizeof(a) << "; a[0] = " << a[0] << std::endl; delete [] a;
-    //int a[] = {2,3,1};   Sort::bubble_sort(a, 3);   Print::print(a, 3);
-
-//    std::vector<int> a = {5,2,0,3,1,4};
-//    Sort::bubble_sort(a);
-//    Sort::bubble_sort_it(a);
-//    Print::print(a);
 
     //Abstract::abstractOut();
     //RombProblem::rombProblem();
@@ -130,7 +132,6 @@ int main(int argc, char *argv[])
     //B1 *a = new B1;
     //a->f();
     //A1 a1;
-
 
     //Terminate *t = nullptr;
     //t->out();

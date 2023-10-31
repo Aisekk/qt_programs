@@ -3,6 +3,9 @@
 
 #include <vector>
 #include <algorithm>
+#include <iostream>
+#include "arrays.h"
+#include "print.h"
 
 namespace Sort {
 
@@ -34,6 +37,21 @@ void bubble_sort(int a[], const int N) {
             }
         }
     }
+}
+
+void test() {
+    //int *a = Arrays::zeroArray(); std::cout << "sizeof(ZeroArray) = " << sizeof(a) << "; a[0] = " << a[0] << std::endl; delete [] a;
+    int a[] = {2,3,1};
+    Sort::bubble_sort(a, 3);
+    Print::print(a, 3);
+
+    std::vector<int> a1 = {5,2,0,3,1,4};
+    Sort::bubble_sort(a1);
+    Print::print(a1);
+
+    std::vector<int> a2 = {5,2,0,3,1,4};
+    Sort::bubble_sort_it(a2);
+    Print::print(a2);
 }
 
 }

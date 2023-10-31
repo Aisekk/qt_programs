@@ -55,6 +55,8 @@ HEADERS += \
     static_obj.h \
     static_obj_include.h \
     stl_algs.h \
+    stl_sorts.h \
+    test_std_algs.h \
     unions.h
 
 # Default rules for deployment.
