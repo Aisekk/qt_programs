@@ -93,12 +93,12 @@ void divideByZero() {
 int main(int argc, char *argv[])
 {
     // test std algs
-    //SetsTasks::test();
+    SetsTasks::test();
     //TestStdAlgs::test_for_each();
     //STL::test();
 
     // sorts
-    StlSorts::test();
+    //StlSorts::test();
     //Sort::test();
 
     // algorithm tasks

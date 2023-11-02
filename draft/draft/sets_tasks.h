@@ -33,8 +33,8 @@ void _union() {
 }
 
 void intersection() {
-    std::vector<int> v1 = {5, 3, 9, 0, 1, 5};
-    std::vector<int> v2 = {7, 1, 5, 6, 3, 1};
+    std::vector<int> v1 = {2, 3, 1, 5};
+    std::vector<int> v2 = {3, 1, 2, 4};
     std::sort(v1.begin(), v1.end());
     std::sort(v2.begin(), v2.end());
     std::vector<int> v;
@@ -44,8 +44,8 @@ void intersection() {
 }
 
 void difference() {
-    std::vector<int> v1 = {5, 3, 9, 0, 1, 1, 5};
-    std::vector<int> v2 = {7, 1, 5, 6, 3, 1, 1, 8};
+    std::vector<int> v1 = {2, 3, 1, 5};
+    std::vector<int> v2 = {3, 1, 2, 4};
     std::sort(v1.begin(), v1.end());
     std::sort(v2.begin(), v2.end());
     std::vector<int> v;
@@ -55,8 +55,8 @@ void difference() {
 }
 
 void symmetric_difference() {
-    std::vector<int> v1 = {5, 3, 0, 1, 1, 5};
-    std::vector<int> v2 = {7, 1, 5, 6, 3, 1};
+    std::vector<int> v1 = {2, 3, 1, 5};
+    std::vector<int> v2 = {3, 1, 2, 4};
     std::sort(v1.begin(), v1.end());
     std::sort(v2.begin(), v2.end());
     std::vector<int> v;
