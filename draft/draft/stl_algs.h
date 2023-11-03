@@ -2,7 +2,9 @@
 #define STL_ALGS_H
 
 #include <vector>
+#include <string>
 #include <algorithm>
+#include <QMap>
 #include "print.h"
 
 namespace STL {
@@ -26,9 +28,32 @@ void mergeArrays() {
      Print::print(v);
 }
 
+void transform() {
+    std::map<int, std::string> m1 = {{0,"zero"}, {1,"one"}, {2,"two"}};
+    std::map<int, int> res;
+    auto it = res.begin();
+    std::transform(m1.cbegin(), m1.cend(), std::inserter(res, it), [&it](const std::map<int, std::string>::value_type &val) {
+        std::next(it);
+        return std::pair{val.first, val.first};
+    });
+    Print::print(res);
+}
+
+void transform_on_QMap() {
+    QMap<int, QString> m1 = {{0,"zero"}, {1,"one"}, {2,"two"}};
+    std::map<int, int> res;
+//    auto it = res.begin();
+//    std::transform(m1.cbegin(), m1.cend(), std::inserter(res, it), [&it](const QMap<int, QString>::key_iterator iter) {
+//        std::next(it);
+//        return std::pair{iter.base().key(), iter.base().key()}; //std::pair{iter->first, iter->first};
+//    });
+    Print::print(res);
+}
+
 void test() {
     //remove_erase_vec();
-    mergeArrays();
+    //mergeArrays();
+    transform();
 }
 
 }
