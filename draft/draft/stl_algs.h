@@ -20,6 +20,15 @@ void remove_erase_vec() {
     Print::print(v);
 }
 
+void remove_erase_vec_by_index() {
+    std::vector<int> v = {5,3,8,7,9,5,6};
+    Print::print(v);
+    int n = 0;
+    auto last = std::remove_if(v.begin(), v.end(), [&n](int val){ bool res = n % 2 == 0; ++n; return res; });
+    v.erase(last, v.end());
+    Print::print(v);
+}
+
 void mergeArrays() {
      std::vector<int> v1 = {0,2,4,6,8};
      std::vector<int> v2 = {1,3,5,7,9};
@@ -52,8 +61,9 @@ void transform_on_QMap() {
 
 void test() {
     //remove_erase_vec();
+    remove_erase_vec_by_index();
     //mergeArrays();
-    transform();
+    //transform();
 }
 
 }
