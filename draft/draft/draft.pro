@@ -25,6 +25,7 @@ HEADERS += \
     const_char.h \
     constructor.h \
     constructors.h \
+    copy_algs.h \
     delete_this.h \
     extern.h \
     file1.h \
@@ -39,6 +40,7 @@ HEADERS += \
     mainwindow.h \
     move.h \
     object.h \
+    one_bool.h \
     operators.h \
     overflow.h \
     placement_new.h \
