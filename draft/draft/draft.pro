@@ -36,6 +36,7 @@ HEADERS += \
     header.h \
     init.h \
     initlist.h \
+    ip_parsing.h \
     lambdas.h \
     mainwindow.h \
     move.h \

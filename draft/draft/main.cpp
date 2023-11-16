@@ -38,6 +38,7 @@
 #include "stl_sorts.h"
 #include <one_bool.h>
 #include "copy_algs.h"
+#include "ip_parsing.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -103,7 +104,8 @@ int main(int argc, char *argv[])
     //std::wstring s = L"рус";
     //std::wcout << s << std::endl;
 
-    CopyAlgs::test();
+    //CopyAlgs::test();
+    IpParsing::test();
 
     // sorts
     //StlSorts::test();
