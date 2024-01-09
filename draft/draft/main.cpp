@@ -36,6 +36,9 @@
 #include "overflow.h"
 #include "test_std_algs.h"
 #include "stl_sorts.h"
+#include <one_bool.h>
+#include "copy_algs.h"
+#include "ip_parsing.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -93,9 +96,16 @@ void divideByZero() {
 int main(int argc, char *argv[])
 {
     // test std algs
-    SetsTasks::test();
+    //SetsTasks::test();
     //TestStdAlgs::test_for_each();
     //STL::test();
+
+    //OneBool::test();
+    //std::wstring s = L"рус";
+    //std::wcout << s << std::endl;
+
+    //CopyAlgs::test();
+    IpParsing::test();
 
     // sorts
     //StlSorts::test();

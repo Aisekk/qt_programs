@@ -3,7 +3,9 @@
 
 #include <vector>
 #include <map>
+#include <string>
 #include <algorithm>
+#include <QMap>
 #include "print.h"
 
 namespace STL {
@@ -19,6 +21,15 @@ void remove_erase_vec() {
     Print::print(v);
 }
 
+void remove_erase_vec_by_index() {
+    std::vector<int> v = {5,3,8,7,9,5,6};
+    Print::print(v);
+    int n = 0;
+    auto last = std::remove_if(v.begin(), v.end(), [&n](int val){ bool res = n % 2 == 0; ++n; return res; });
+    v.erase(last, v.end());
+    Print::print(v);
+}
+
 void mergeArrays() {
      std::vector<int> v1 = {0,2,4,6,8};
      std::vector<int> v2 = {1,3,5,7,9};
@@ -28,21 +39,32 @@ void mergeArrays() {
 }
 
 void transform() {
-    std::map<int, std::string> m1 = {{0,"zero"},{1,"one"},{2,"two"}};
-    std::map<int,int> m2;
-    auto it = m2.begin();
-    std::transform(m1.begin(), m1.end(), std::inserter(m2, it), [&it](const std::map<int, std::string>::value_type &val) {
-        auto p = std::pair{val.first, val.first};
+    std::map<int, std::string> m1 = {{0,"zero"}, {1,"one"}, {2,"two"}};
+    std::map<int, int> res;
+    auto it = res.begin();
+    std::transform(m1.cbegin(), m1.cend(), std::inserter(res, it), [&it](const std::map<int, std::string>::value_type &val) {
         std::next(it);
-        return p;
+        return std::pair{val.first, val.first};
     });
-    Print::print(m2);
+    Print::print(res);
+}
+
+void transform_on_QMap() {
+    QMap<int, QString> m1 = {{0,"zero"}, {1,"one"}, {2,"two"}};
+    std::map<int, int> res;
+//    auto it = res.begin();
+//    std::transform(m1.cbegin(), m1.cend(), std::inserter(res, it), [&it](const QMap<int, QString>::key_iterator iter) {
+//        std::next(it);
+//        return std::pair{iter.base().key(), iter.base().key()}; //std::pair{iter->first, iter->first};
+//    });
+    Print::print(res);
 }
 
 void test() {
     //remove_erase_vec();
+    remove_erase_vec_by_index();
     //mergeArrays();
-    transform();
+    //transform();
 }
 
 }
