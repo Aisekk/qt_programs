@@ -2,6 +2,7 @@
 #define STL_ALGS_H
 
 #include <vector>
+#include <map>
 #include <algorithm>
 #include "print.h"
 
@@ -26,9 +27,22 @@ void mergeArrays() {
      Print::print(v);
 }
 
+void transform() {
+    std::map<int, std::string> m1 = {{0,"zero"},{1,"one"},{2,"two"}};
+    std::map<int,int> m2;
+    auto it = m2.begin();
+    std::transform(m1.begin(), m1.end(), std::inserter(m2, it), [&it](const std::map<int, std::string>::value_type &val) {
+        auto p = std::pair{val.first, val.first};
+        std::next(it);
+        return p;
+    });
+    Print::print(m2);
+}
+
 void test() {
     //remove_erase_vec();
-    mergeArrays();
+    //mergeArrays();
+    transform();
 }
 
 }

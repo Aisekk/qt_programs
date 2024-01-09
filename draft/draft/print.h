@@ -2,6 +2,7 @@
 #define PRINT_H
 
 #include <vector>
+#include <map>
 #include <iostream>
 #include <string>
 
@@ -24,6 +25,13 @@ void print(const std::vector<int> &v) {
 void print(int a[], const int N) {
     for (int i = 0; i < N; ++i) {
         std::cout << a[i] << ' ';
+    }
+    std::cout << std::endl;
+}
+
+void print(const std::map<int,int> &m) {
+    for (const auto &[k,v] : m) {
+        std::cout << k << ' ' << v << ' ';
     }
     std::cout << std::endl;
 }
