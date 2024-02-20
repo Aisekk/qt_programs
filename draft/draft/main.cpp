@@ -2,7 +2,7 @@
 #include "header.h"
 #include "file1.h"
 //#include "file2.h"
-#include "const_char.h"
+#include "literals.h"
 #include "unions.h"
 #include "static_obj.h"
 #include "static_obj_include.h"
@@ -39,6 +39,10 @@
 #include "one_bool.h"
 #include "copy_algs.h"
 #include "ip_parsing.h"
+#include "static_word.h"
+#include "static_word_2.h"
+#include "bit_flags.h"
+#include "class_initialization.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -95,25 +99,6 @@ void divideByZero() {
     double s = 1.0 / q; qInfo() << "s = " << s;
 }
 
-std::vector<const char*> testConcatenation() {
-  std::vector<const char*> points = {
-    "point_0",
-    "point_1",
-    "point_2",
-    "point_3"
-  };
-  const int points_count_max = 8;
-  points.clear();
-  points.reserve(points_count_max);
-  for (int i = 0; i < points_count_max; ++i) {
-    std::string point_name = ("point_" + std::to_string(i)).data();
-    std::cout << point_name << ' ';
-    points.emplace_back(std::printf("point_%d", i)); // point_name.data());
-  }
-  std::cout << std::endl;
-  return points;
-}
-
 void out_vec(const std::vector<const char*> &points) {
   for (const auto &s : points) {
     std::cout << s << ' ';
@@ -123,8 +108,17 @@ void out_vec(const std::vector<const char*> &points) {
 
 int main(int argc, char *argv[])
 {
-    auto v = testConcatenation();
-    out_vec(v);
+    ClassFieldsInit::test_init();
+
+    //Literals::class_literals();
+    //Literals::text_literals();
+    //Literals::constness();
+
+    //BitFlags::test_bit_flags();
+    //BitFlags::test_bit_flags_0x();
+
+    //Static::C c(1,1);
+    //fun_1();
 
     // test std algs
     //SetsTasks::test();
@@ -203,7 +197,6 @@ int main(int argc, char *argv[])
 
     //foo();
     //divideByZero();
-    //constness();
 
     return 0;// a.exec();
 }

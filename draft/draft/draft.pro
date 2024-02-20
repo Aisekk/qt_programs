@@ -9,20 +9,25 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    bit_flags.cpp \
+    class_initialization.cpp \
     file1.cpp \
     file2.cpp \
     main.cpp \
     mainwindow.cpp \
     object.cpp \
     operators.cpp \
+    static_word.cpp \
+    static_word_2.cpp \
     unions.cpp
 
 HEADERS += \
     abstract_class.h \
     arrays.h \
     auto.h \
+    bit_flags.h \
     cast.h \
-    const_char.h \
+    class_initialization.h \
     constructor.h \
     constructors.h \
     copy_algs.h \
@@ -38,6 +43,7 @@ HEADERS += \
     initlist.h \
     ip_parsing.h \
     lambdas.h \
+    literals.h \
     mainwindow.h \
     move.h \
     object.h \
@@ -57,6 +63,8 @@ HEADERS += \
     sort.h \
     static_obj.h \
     static_obj_include.h \
+    static_word.h \
+    static_word_2.h \
     stl_algs.h \
     stl_sorts.h \
     test_std_algs.h \
