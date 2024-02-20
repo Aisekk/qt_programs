@@ -36,7 +36,7 @@
 #include "overflow.h"
 #include "test_std_algs.h"
 #include "stl_sorts.h"
-#include <one_bool.h>
+#include "one_bool.h"
 #include "copy_algs.h"
 #include "ip_parsing.h"
 
@@ -46,6 +46,9 @@
 #include <QLinkedList>
 #include <list>
 #include <QDebug>
+
+#include <cstdio>
+#include <cstring>
 
 int global = 10;
 //static int static_var = 11;
@@ -92,9 +95,37 @@ void divideByZero() {
     double s = 1.0 / q; qInfo() << "s = " << s;
 }
 
+std::vector<const char*> testConcatenation() {
+  std::vector<const char*> points = {
+    "point_0",
+    "point_1",
+    "point_2",
+    "point_3"
+  };
+  const int points_count_max = 8;
+  points.clear();
+  points.reserve(points_count_max);
+  for (int i = 0; i < points_count_max; ++i) {
+    std::string point_name = ("point_" + std::to_string(i)).data();
+    std::cout << point_name << ' ';
+    points.emplace_back(std::printf("point_%d", i)); // point_name.data());
+  }
+  std::cout << std::endl;
+  return points;
+}
+
+void out_vec(const std::vector<const char*> &points) {
+  for (const auto &s : points) {
+    std::cout << s << ' ';
+  }
+  std::cout << std::endl;
+}
 
 int main(int argc, char *argv[])
 {
+    auto v = testConcatenation();
+    out_vec(v);
+
     // test std algs
     //SetsTasks::test();
     //TestStdAlgs::test_for_each();
@@ -105,7 +136,7 @@ int main(int argc, char *argv[])
     //std::wcout << s << std::endl;
 
     //CopyAlgs::test();
-    IpParsing::test();
+    //IpParsing::test();
 
     // sorts
     //StlSorts::test();
