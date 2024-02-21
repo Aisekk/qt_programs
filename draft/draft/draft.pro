@@ -30,8 +30,10 @@ HEADERS += \
     class_initialization.h \
     constructor.h \
     constructors.h \
+    constructors_gen.h \
     copy_algs.h \
     delete_this.h \
+    directives.h \
     extern.h \
     file1.h \
     file2.h \

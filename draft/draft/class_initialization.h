@@ -26,7 +26,8 @@ struct Coords {
 class String {
 public:
     String(const char* s = nullptr) {
-        std::cout << "String(): " << s << std::endl;
+        if (s != nullptr)
+            std::cout << "String(): " << s << std::endl;
         if (s != nullptr) {
             str = new char[std::strlen(s) + 1];
             strcpy(str, s);
@@ -65,7 +66,7 @@ public:
         return io;
     }
 private:
-    char* str;
+    char* str = nullptr;
 };
 
 class A

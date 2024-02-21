@@ -1,3 +1,6 @@
+#include <cstdio>
+#include <cstring>
+
 #include "mainwindow.h"
 #include "header.h"
 #include "file1.h"
@@ -43,6 +46,8 @@
 #include "static_word_2.h"
 #include "bit_flags.h"
 #include "class_initialization.h"
+#include "directives.h"
+#include "constructors_gen.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -50,9 +55,6 @@
 #include <QLinkedList>
 #include <list>
 #include <QDebug>
-
-#include <cstdio>
-#include <cstring>
 
 int global = 10;
 //static int static_var = 11;
@@ -108,7 +110,9 @@ void out_vec(const std::vector<const char*> &points) {
 
 int main(int argc, char *argv[])
 {
-    ClassFieldsInit::test_init();
+    ConstructorsGen::test_auto_gen();
+    //Directives::test();
+    //ClassFieldsInit::test_init();
 
     //Literals::class_literals();
     //Literals::text_literals();
