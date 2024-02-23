@@ -1,6 +1,5 @@
 #include "run_task_in_thread.h"
 #include <algorithm>
-#include <functional>
 
 namespace Threads {
 
@@ -10,7 +9,7 @@ bool is_skipped_task(const Task* _task)
 }
 
 void TaskRunner::push(Task *task) {
-    std::scoped_lock lock(mutex);
+    std::unique_lock lock(mutex);
     if (!running) {
         delete task;
         return;
@@ -55,7 +54,7 @@ void TaskRunner::run() {
 
 void TaskRunner::start() {
     {
-        std::scoped_lock lock(mutex);
+        std::unique_lock lock(mutex);
         running = true;
     }
 
@@ -63,18 +62,57 @@ void TaskRunner::start() {
 }
 
 void TaskRunner::stop() {
-    push(0);
+    push(nullptr);
 
     {
-        std::scoped_lock lock(mutex);
+        std::unique_lock lock(mutex);
         running = false;
     }
 
     thread.join();
 
-    std::scoped_lock lock(mutex);
+    std::unique_lock lock(mutex);
     for (tasks_t::iterator it = tasks.begin(); it != tasks.end(); ++it) {
         delete *it;
+    }
+}
+
+
+A::A() {
+    task_runner = new TaskRunner;
+    task_runner->start();
+}
+
+A::~A() {
+    delete task_runner;
+}
+
+void A::run_tasks() {
+    std::queue<Task*> tasks;
+    tasks.push(make_generic_task(std::bind(A::task, 1)));
+    tasks.push(make_generic_task(std::bind(A::task, 2)));
+    tasks.push(make_generic_task(std::bind(A::task, 3)));
+    tasks.push(make_generic_task(std::bind(A::task, 4)));
+    tasks.push(make_generic_task(std::bind(A::task, 5)));
+
+    while (!tasks.empty()) {
+        task_runner->push(tasks.front());
+        tasks.pop();
+    }
+}
+
+void A::task(int n) {
+    std::string task = "task_" + std::to_string(n);
+    std::cout << task <<  std::endl;
+}
+
+void runner() {
+    A a;
+    a.run_tasks();
+
+    int n = 10000000;
+    while (n != 0) {
+        --n;
     }
 }
 

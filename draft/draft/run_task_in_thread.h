@@ -5,13 +5,16 @@
 #include <mutex>
 #include <condition_variable>
 #include <list>
+#include <iostream>
+#include <string>
+#include <functional>
+#include <queue>
 
 namespace Threads {
 
 class Task;
 
-class TaskRunner
-{
+class TaskRunner {
 public:
     bool running;
 
@@ -71,6 +74,20 @@ Task * make_generic_task(const T & t, Task::PERFORM perform = Task::DO_TASK)
 {
     return new GenericTask < T > (t, perform);
 }
+
+
+class A {
+public:
+    A();
+    ~A();
+    void run_tasks();
+private:
+    static void task(int n);
+
+    TaskRunner* task_runner;
+};
+
+void runner();
 
 }
 
