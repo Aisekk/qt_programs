@@ -110,7 +110,7 @@ void out_vec(const std::vector<const char*> &points) {
 
 int main(int argc, char *argv[])
 {
-    ConstructorsGen::test_auto_gen();
+    //ConstructorsGen::test_auto_gen();
     //Directives::test();
     //ClassFieldsInit::test_init();
 

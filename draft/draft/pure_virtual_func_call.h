@@ -17,7 +17,7 @@ public:
 class Derived : public Base
 {
 public:
-    Derived() {} //: Base(){}
+    Derived() : Base(){}
     void f() override {
         std::cout << "Derived::f()" << std::endl;
     }
@@ -26,6 +26,8 @@ public:
 void pureVirtCall() {
     Derived d;
     //d.f();
+    //Base* b = new Derived;
+    //delete b;
 }
 
 }

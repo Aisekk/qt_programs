@@ -17,6 +17,7 @@ SOURCES += \
     mainwindow.cpp \
     object.cpp \
     operators.cpp \
+    run_task_in_thread.cpp \
     static_word.cpp \
     static_word_2.cpp \
     unions.cpp
@@ -59,6 +60,7 @@ HEADERS += \
     qt_object.h \
     reverse.h \
     romb_problem.h \
+    run_task_in_thread.h \
     sets_tasks.h \
     sizeof.h \
     smart_ptrs.h \
