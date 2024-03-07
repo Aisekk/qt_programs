@@ -49,6 +49,7 @@
 #include "directives.h"
 #include "constructors_gen.h"
 #include "run_task_in_thread.h"
+#include "break.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -111,7 +112,8 @@ void out_vec(const std::vector<const char*> &points) {
 
 int main(int argc, char *argv[])
 {
-    Threads::runner();
+    Break::two_cycles_break();
+    //Threads::runner();
 
     //ConstructorsGen::test_auto_gen();
     //Directives::test();

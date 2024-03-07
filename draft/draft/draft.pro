@@ -27,6 +27,7 @@ HEADERS += \
     arrays.h \
     auto.h \
     bit_flags.h \
+    break.h \
     cast.h \
     class_initialization.h \
     constructor.h \
