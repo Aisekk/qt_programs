@@ -30,6 +30,7 @@ HEADERS += \
     break.h \
     cast.h \
     class_initialization.h \
+    cond_variables.h \
     constructor.h \
     constructors.h \
     constructors_gen.h \

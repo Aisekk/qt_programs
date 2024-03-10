@@ -51,6 +51,7 @@
 #include "run_task_in_thread.h"
 #include "break.h"
 #include "iterators.h"
+#include "cond_variables.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -113,11 +114,14 @@ void out_vec(const std::vector<const char*> &points) {
 
 int main(int argc, char *argv[])
 {
-    Iterators::no_invalidate_list_iters();
+    CondVars::use_cond_var();
+    //Threads::runner();
+
+    //Iterators::insert_iters();
+    //Iterators::no_invalidate_list_iters();
     //Iterators::invalidate_vec_iters();
     //Literals::process_literals();
     //Break::two_cycles_break();
-    //Threads::runner();
 
     //ConstructorsGen::test_auto_gen();
     //Directives::test();
