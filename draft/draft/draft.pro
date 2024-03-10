@@ -46,6 +46,7 @@ HEADERS += \
     init.h \
     initlist.h \
     ip_parsing.h \
+    iterators.h \
     lambdas.h \
     literals.h \
     mainwindow.h \
@@ -64,6 +65,7 @@ HEADERS += \
     run_task_in_thread.h \
     sets_tasks.h \
     sizeof.h \
+    smart_pointers.h \
     smart_ptrs.h \
     sort.h \
     static_obj.h \

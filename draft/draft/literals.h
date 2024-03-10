@@ -6,6 +6,28 @@
 
 namespace Literals {
 
+const char* get_literal() {
+    const char* lit = "some literal";
+    return lit;
+}
+
+const char* get_local_const_char() {
+    const char lit[20] = "some literal";
+    return lit;
+}
+
+void process_literals() {
+    std::cout << get_literal() << std::endl;
+    try {
+        //const char* ch = get_local_const_char();
+        //std::cout << ch << std::endl;
+    } catch (...) {
+
+    }
+    auto lit = get_literal();
+    std::cout << lit << std::endl;
+}
+
 void constness() {
     int value1{5};
     int value2{6};
