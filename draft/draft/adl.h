@@ -2,8 +2,11 @@
 #define ADL_H
 
 #include <iostream>
+#include <algorithm>
+#include <vector>
+#include "print.h"
 
-namespace ADL {
+namespace ArgDependLookup {
 
 void ADL_examples() {
     std::cout << "Test\n"; // There is no operator<< in global namespace, but ADL
@@ -20,8 +23,12 @@ void ADL_examples() {
 
     //(endl)(std::cout); // Error: 'endl' is not declared in this namespace.
     // The sub-expression (endl) is not an unqualified-id
+
+    std::vector<int> v{0,1,2,3,4,5,6,7,8};
+    std::remove(begin(v), end(v), 3);
+    remove(begin(v), end(v), 4);
+    Print::print(v);
 }
 
 }
-
 #endif // ADL_H

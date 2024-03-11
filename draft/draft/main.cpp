@@ -54,6 +54,8 @@
 #include "cond_variables.h"
 #include "move_semantics.h"
 #include "adl.h"
+#include "std_transform.h"
+#include "std_unexpected.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -116,7 +118,9 @@ void out_vec(const std::vector<const char*> &points) {
 
 int main(int argc, char *argv[])
 {
-    ADL::ADL_examples();
+    StdUnexpected::std_unexpected();
+    //StdTransform::std_transform();
+    //ArgDependLookup::ADL_examples();
     //MoveSemantics::std_string_move();
 
     //CondVars::use_cond_var();

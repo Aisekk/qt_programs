@@ -75,8 +75,11 @@ HEADERS += \
     static_obj_include.h \
     static_word.h \
     static_word_2.h \
+    std_transform.h \
+    std_unexpected.h \
     stl_algs.h \
     stl_sorts.h \
+    task_huawei.h \
     test_std_algs.h \
     unions.h
 

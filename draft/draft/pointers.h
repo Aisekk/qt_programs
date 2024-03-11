@@ -8,7 +8,7 @@ namespace Pointers {
 
 class A {
 public:
-    A (int n) : n1{n} {}
+    A (int n = 0) : n1{n} {}
     int n1;
     int *n2 = &n1;
 };
