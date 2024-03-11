@@ -52,6 +52,8 @@
 #include "break.h"
 #include "iterators.h"
 #include "cond_variables.h"
+#include "move_semantics.h"
+#include "adl.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -114,7 +116,10 @@ void out_vec(const std::vector<const char*> &points) {
 
 int main(int argc, char *argv[])
 {
-    CondVars::use_cond_var();
+    ADL::ADL_examples();
+    //MoveSemantics::std_string_move();
+
+    //CondVars::use_cond_var();
     //Threads::runner();
 
     //Iterators::insert_iters();

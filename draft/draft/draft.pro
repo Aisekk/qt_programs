@@ -24,6 +24,7 @@ SOURCES += \
 
 HEADERS += \
     abstract_class.h \
+    adl.h \
     arrays.h \
     auto.h \
     bit_flags.h \
@@ -52,6 +53,7 @@ HEADERS += \
     literals.h \
     mainwindow.h \
     move.h \
+    move_semantics.h \
     object.h \
     one_bool.h \
     operators.h \
