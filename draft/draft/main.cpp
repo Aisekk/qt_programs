@@ -66,8 +66,9 @@
 #include <list>
 #include <QDebug>
 
+#include "algs/binary_search/binary_search.h"
+
 int global = 10;
-//static int static_var = 11;
 
 void get_7E_Address() {
     quint16 addr(0x3F00);
@@ -102,25 +103,11 @@ void compareStlQtContainers() {
             << "; sizeof (stdlist) = " << sizeof (stdlist);
 }
 
-void divideByZero() {
-    //int n = 0;
-    //int m = 5 / n; qInfo() << "m = " << m;
-    double p = std::numeric_limits<double>::epsilon() / 2; // 0.0;
-    double q = 5.0 / p; qInfo() << "q = " << q;
-    double r = 1.0 * q; qInfo() << "r = " << r;
-    double s = 1.0 / q; qInfo() << "s = " << s;
-}
-
-void out_vec(const std::vector<const char*> &points) {
-  for (const auto &s : points) {
-    std::cout << s << ' ';
-  }
-  std::cout << std::endl;
-}
-
 int main(int argc, char *argv[])
 {
-    StdSharedPtr::run();
+    BinarySearch::Solution sol; sol.b_search();
+
+    //StdSharedPtr::run();
     //Hwi::task();
     //StdUnexpected::std_unexpected();
     //StdTransform::std_transform();

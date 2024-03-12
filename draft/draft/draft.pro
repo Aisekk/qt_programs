@@ -25,6 +25,7 @@ SOURCES += \
 HEADERS += \
     abstract_class.h \
     adl.h \
+    algs/binary_search/binary_search.h \
     arrays.h \
     auto.h \
     bit_flags.h \
