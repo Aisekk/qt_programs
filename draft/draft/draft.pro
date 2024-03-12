@@ -79,7 +79,7 @@ HEADERS += \
     std_unexpected.h \
     stl_algs.h \
     stl_sorts.h \
-    task_huawei.h \
+    task_hwi.h \
     test_std_algs.h \
     unions.h
 

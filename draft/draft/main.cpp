@@ -56,6 +56,7 @@
 #include "adl.h"
 #include "std_transform.h"
 #include "std_unexpected.h"
+#include "task_hwi.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -118,7 +119,9 @@ void out_vec(const std::vector<const char*> &points) {
 
 int main(int argc, char *argv[])
 {
-    StdUnexpected::std_unexpected();
+    Hwi::task();
+
+    //StdUnexpected::std_unexpected();
     //StdTransform::std_transform();
     //ArgDependLookup::ADL_examples();
     //MoveSemantics::std_string_move();
