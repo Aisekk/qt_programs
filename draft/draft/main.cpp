@@ -57,6 +57,7 @@
 #include "std_transform.h"
 #include "std_unexpected.h"
 #include "task_hwi.h"
+#include "shared_ptr_in_multithread.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -119,8 +120,8 @@ void out_vec(const std::vector<const char*> &points) {
 
 int main(int argc, char *argv[])
 {
-    Hwi::task();
-
+    StdSharedPtr::run();
+    //Hwi::task();
     //StdUnexpected::std_unexpected();
     //StdTransform::std_transform();
     //ArgDependLookup::ADL_examples();

@@ -67,6 +67,7 @@ HEADERS += \
     romb_problem.h \
     run_task_in_thread.h \
     sets_tasks.h \
+    shared_ptr_in_multithread.h \
     sizeof.h \
     smart_pointers.h \
     smart_ptrs.h \
