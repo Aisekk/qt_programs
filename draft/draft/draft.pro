@@ -33,10 +33,12 @@ HEADERS += \
     cast.h \
     class_initialization.h \
     cond_variables.h \
+    construction_seq.h \
     constructor.h \
     constructors.h \
     constructors_gen.h \
     copy_algs.h \
+    cycles.h \
     delete_this.h \
     directives.h \
     extern.h \
@@ -55,15 +57,18 @@ HEADERS += \
     mainwindow.h \
     move.h \
     move_semantics.h \
+    nrvo_rvo.h \
     object.h \
     one_bool.h \
     operators.h \
     overflow.h \
+    patterns/visitor.h \
     placement_new.h \
     pointers.h \
     print.h \
     pure_virtual_func_call.h \
     qt_object.h \
+    reinterpret_cast.h \
     reverse.h \
     romb_problem.h \
     run_task_in_thread.h \
@@ -83,7 +88,8 @@ HEADERS += \
     stl_sorts.h \
     task_hwi.h \
     test_std_algs.h \
-    unions.h
+    unions.h \
+    weak_ptr_use.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

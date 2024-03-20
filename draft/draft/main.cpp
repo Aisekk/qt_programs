@@ -58,6 +58,12 @@
 #include "std_unexpected.h"
 #include "task_hwi.h"
 #include "shared_ptr_in_multithread.h"
+#include "cycles.h"
+#include "reinterpret_cast.h"
+#include "nrvo_rvo.h"
+#include "construction_seq.h"
+#include "weak_ptr_use.h"
+#include "patterns/visitor.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -105,13 +111,26 @@ void compareStlQtContainers() {
 
 int main(int argc, char *argv[])
 {
-    BinarySearch::Solution sol; sol.b_search();
+    Patterns::test_visitor();
 
+    //WeakPtrUse::shared_ptr_no_thread_safe();
+    //WeakPtrUse::shared_ptr_mem_leak();
+    //WeakPtrUse::dangling_ptr_problem();
+
+    //BinarySearch::Solution sol; sol.b_search();
+
+    //ConstructionSeq::test();
+    //RVO::test_NRVO_RVO();
+    //Cast::reinterpet_cast();
+    //Cycles::forever_cycle();
     //StdSharedPtr::run();
     //Hwi::task();
     //StdUnexpected::std_unexpected();
     //StdTransform::std_transform();
     //ArgDependLookup::ADL_examples();
+
+    //MoveSemantics::move_std_vector_elems();
+    //MoveSemantics::move_std_vector();
     //MoveSemantics::std_string_move();
 
     //CondVars::use_cond_var();
