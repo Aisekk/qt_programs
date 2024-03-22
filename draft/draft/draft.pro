@@ -38,6 +38,7 @@ HEADERS += \
     constructors.h \
     constructors_gen.h \
     copy_algs.h \
+    cpp_memory.h \
     cycles.h \
     delete_this.h \
     directives.h \
