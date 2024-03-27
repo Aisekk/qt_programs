@@ -112,9 +112,10 @@ void compareStlQtContainers() {
 
 int main(int argc, char *argv[])
 {
+    CppMemory::test_number_template();
     //CppMemory::test();
 
-    Cast::test_dynamic_cast();
+    //Cast::test_dynamic_cast();
     //Cast::test_static_cast();
     //Cast::test_cpp_cast();
     //Patterns::test_visitor();
