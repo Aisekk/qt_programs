@@ -5,22 +5,11 @@
 #include <string>
 #include <typeinfo>
 
-namespace CppMemory {
-
-void test() {
-    char szData[] = "abc";
-    szData[0] = 'A';
-    std::cout << szData << std::endl;
-    const char *pszData = "abc";
-    //pszData[0] = 'A'; // compile error
-    std::cout << pszData << std::endl;
-}
-
 template <class T>
 class Number {
     T* num;
 public:
-    Number(T n) : num{new T{n}} {
+    Number(T n = T()) : num{new T{n}} {
         std::cout << "Number()" << std::endl;
     }
     ~Number() {
@@ -31,15 +20,15 @@ public:
     T* get() const { return num; }
 };
 
-void test_number_template() {
-    Number<int> n1(1);
-    Number<double> n2(2.0);
-    Number<long long> n3(100);
+extern const Number<int> num_int;
 
-    std::cout << *n1.get() << std::endl;
-    std::cout << *n2.get() << std::endl;
-    std::cout << *n3.get() << std::endl;
-}
+namespace CppMemory {
+
+void test();
+
+void test_number_template();
+
+void test_global_template();
 
 }
 

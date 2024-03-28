@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     bit_flags.cpp \
     class_initialization.cpp \
+    cpp_memory.cpp \
     file1.cpp \
     file2.cpp \
     main.cpp \
