@@ -50,6 +50,7 @@ HEADERS += \
     hash_heap.h \
     hash_table.h \
     header.h \
+    headers.h \
     init.h \
     initlist.h \
     ip_parsing.h \
