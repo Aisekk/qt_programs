@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     bit_flags.cpp \
     class_initialization.cpp \
+    cpp_memory.cpp \
     file1.cpp \
     file2.cpp \
     main.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     constructors.h \
     constructors_gen.h \
     copy_algs.h \
+    cpp_memory.h \
     cycles.h \
     delete_this.h \
     directives.h \
@@ -48,6 +50,7 @@ HEADERS += \
     hash_heap.h \
     hash_table.h \
     header.h \
+    headers.h \
     init.h \
     initlist.h \
     ip_parsing.h \

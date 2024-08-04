@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace Cast {
+namespace RCast {
 
 struct A {
     int a = 1;

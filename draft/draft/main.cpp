@@ -64,6 +64,7 @@
 #include "construction_seq.h"
 #include "weak_ptr_use.h"
 #include "patterns/visitor.h"
+#include "cpp_memory.h"
 
 #include <QApplication>
 #include <QtGlobal>
@@ -111,7 +112,15 @@ void compareStlQtContainers() {
 
 int main(int argc, char *argv[])
 {
-    Patterns::test_visitor();
+    //std::cout << "main: " << *num_int.get() << std::endl;
+    //CppMemory::test_global_template();
+    //CppMemory::test_number_template();
+    //CppMemory::test();
+
+    //Cast::test_dynamic_cast();
+    //Cast::test_static_cast();
+    //Cast::test_cpp_cast();
+    //Patterns::test_visitor();
 
     //WeakPtrUse::shared_ptr_no_thread_safe();
     //WeakPtrUse::shared_ptr_mem_leak();
@@ -121,7 +130,7 @@ int main(int argc, char *argv[])
 
     //ConstructionSeq::test();
     //RVO::test_NRVO_RVO();
-    //Cast::reinterpet_cast();
+    //RCast::reinterpet_cast();
     //Cycles::forever_cycle();
     //StdSharedPtr::run();
     //Hwi::task();
